@@ -1,6 +1,11 @@
+package chapter01;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-public class MarketData implements Serializable {
+public class MarketData extends Identifiable implements Serializable {
     private static final long serialVersionUID = 47L;
 
     private String securityId;
@@ -10,6 +15,8 @@ public class MarketData implements Serializable {
     private double low;
     private double close;
     private double last;
+
+    private transient MarketDataProvider marketDataProvider;
 
     public MarketData() {
     }
@@ -70,6 +77,14 @@ public class MarketData implements Serializable {
         this.last = last;
     }
 
+    public MarketDataProvider getMarketDataProvider() {
+        return marketDataProvider;
+    }
+
+    public void setMarketDataProvider(final MarketDataProvider marketDataProvider) {
+        this.marketDataProvider = marketDataProvider;
+    }
+
     @Override
     public String toString() {
         return "MarketData{" +
@@ -80,6 +95,26 @@ public class MarketData implements Serializable {
                 ", low=" + low +
                 ", close=" + close +
                 ", last=" + last +
+                ", marketDataProvider=" + marketDataProvider +
+                ", id=" + getId() +
                 '}';
+    }
+
+    private void writeObject(final ObjectOutputStream oos) {
+        try {
+            oos.defaultWriteObject();
+            oos.writeUTF(marketDataProvider.getName());
+        } catch (final IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void readObject(final ObjectInputStream ois) {
+        try {
+            ois.defaultReadObject();
+            marketDataProvider = new MarketDataProvider(ois.readUTF());
+        } catch (final IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

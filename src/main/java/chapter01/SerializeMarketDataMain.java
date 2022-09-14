@@ -1,6 +1,8 @@
+package chapter01;
+
 import java.io.*;
 
-public class SerializeMarketData {
+public class SerializeMarketDataMain {
     public static final String SERIALIZE_FILENAME = "testSerialize.ser";
 
     public static void main(final String[] args) {
@@ -13,6 +15,10 @@ public class SerializeMarketData {
         marketData.setClose(163.1D);
         marketData.setLast(161.9D);
 
+        final MarketDataProvider marketDataProvider = new MarketDataProvider("Bloomberg");
+        marketData.setMarketDataProvider(marketDataProvider);
+
+        marketData.setId("0001");
         serializeObject(marketData);
         deserializeObject();
     }
