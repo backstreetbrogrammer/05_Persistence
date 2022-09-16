@@ -1,46 +1,82 @@
 package chapter01;
 
 import java.io.*;
+import java.util.List;
 
 public class SerializeMarketDataMain {
     public static final String SERIALIZE_FILENAME = "testSerialize.ser";
 
     public static void main(final String[] args) {
-        final MarketData marketData = new MarketData();
-        marketData.setSecurityId("AAPL");
-        marketData.setTime(System.currentTimeMillis());
-        marketData.setOpen(160.3D);
-        marketData.setHigh(165.7D);
-        marketData.setLow(157.2D);
-        marketData.setClose(163.1D);
-        marketData.setLast(161.9D);
-
-        final MarketDataProvider marketDataProvider = new MarketDataProvider("Bloomberg");
-        marketData.setMarketDataProvider(marketDataProvider);
-
-        marketData.setId("0001");
-        serializeObject(marketData);
-        deserializeObject();
+//        testRunWithOneObject();
+        testRunWithList();
     }
 
-    private static void deserializeObject() {
-        try (final var fis = new FileInputStream(SERIALIZE_FILENAME);
-             final var ois = new ObjectInputStream(fis)) {
-            final MarketData fromSerialize = (MarketData) ois.readObject();
-            System.out.println("After Serialization: ");
-            System.out.println(fromSerialize);
-        } catch (final IOException | ClassNotFoundException e) {
+    private static void testRunWithList() {
+        final List<MarketData> marketDataList = MarketDataFactory.getMarketDataObjects(3);
+        serializeList(marketDataList);
+        deserializeList();
+    }
+
+    private static void testRunWithOneObject() {
+        final var marketData = MarketDataFactory.getOneMarketData();
+        serializeOneObject(marketData);
+        deserializeOneObject();
+    }
+
+    private static void serializeList(final List<MarketData> marketDataList) {
+        try (final var oos = new ObjectOutputStream(
+                new BufferedOutputStream(
+                        new FileOutputStream(SERIALIZE_FILENAME)))) {
+            for (final MarketData marketData :
+                    marketDataList) {
+                System.out.println("Before Serialization: ");
+                System.out.println(marketData);
+                oos.writeObject(marketData);
+            }
+            System.out.println("-------------------------");
+            System.out.println("-------------------------");
+        } catch (final IOException e) {
             e.printStackTrace();
         }
     }
 
-    private static void serializeObject(final MarketData marketData) {
-        try (final var fos = new FileOutputStream(SERIALIZE_FILENAME);
-             final var oos = new ObjectOutputStream(fos)) {
+    private static void deserializeList() {
+        try (final var ois = new ObjectInputStream(
+                new BufferedInputStream(
+                        new FileInputStream(SERIALIZE_FILENAME)))) {
+            while (true) {
+                final var object = ois.readObject();
+                if (object instanceof MarketData) {
+                    var marketData = (MarketData) object;
+                    System.out.println("After Serialization: ");
+                    System.out.println(marketData);
+                }
+            }
+        } catch (final IOException | ClassNotFoundException e) {
+            //e.printStackTrace();
+        }
+    }
+
+    private static void serializeOneObject(final MarketData marketData) {
+        try (final var oos = new ObjectOutputStream(
+                new BufferedOutputStream(
+                        new FileOutputStream(SERIALIZE_FILENAME)))) {
             System.out.println("Before Serialization: ");
             System.out.println(marketData);
             oos.writeObject(marketData);
         } catch (final IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void deserializeOneObject() {
+        try (final var ois = new ObjectInputStream(
+                new BufferedInputStream(
+                        new FileInputStream(SERIALIZE_FILENAME)))) {
+            final MarketData fromSerialize = (MarketData) ois.readObject();
+            System.out.println("After Serialization: ");
+            System.out.println(fromSerialize);
+        } catch (final IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }

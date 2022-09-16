@@ -8,8 +8,6 @@
 - Serialization using transient
 - Serialization using writeObject and readObject
 - Inheritance and Serialization
+- Serialization with list
 - Serialization with arrays
-- Serialization with collections
 - Serialization with statics
-- Serialization with different versions
-- Exercises and solutions

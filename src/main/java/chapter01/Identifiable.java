@@ -1,6 +1,10 @@
 package chapter01;
 
-public class Identifiable {
+import java.io.Serializable;
+
+public class Identifiable implements Serializable {
+    private static final long serialVersionUID = 43L;
+    
     private String id;
 
     public String getId() {
