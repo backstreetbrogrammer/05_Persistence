@@ -59,7 +59,10 @@ This class is an output stream for writing data to a File and is meant for writi
 This class obtains input bytes from a file in a file system and is meant for reading streams of raw bytes such as image data.
 
 
-### Chapter 04 - Serialization with serial version UID
+### Chapter 04 - Serialization versioning
+Suppose we have a class and we have serialized its object to a file on the disk, and due to some new requirements, we added/removed one field from our class. 
+Or just added a new utility method to it. Now, if we try to deserialize the already serialized object, we will get _InvalidClassException_.
+
 When we serialize a class, each class has a unique identification number associated with it.
 Its also called stream unique identifiers, more commonly known as serial versionUIDs.
 
