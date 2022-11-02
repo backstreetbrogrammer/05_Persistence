@@ -13,14 +13,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class MarketDataWithPrimitiveFieldsFileTest {
 
     private File serFile;
-    private final long time = 10000L;
 
     @BeforeEach
     void setUp() throws IOException {
-        final Path serPath = Path.of("src", "test", "resources", "MarketDataWithPrimitiveFieldsFileTest.ser");
+        final var serPath = Path.of("src", "test", "resources", "MarketDataWithPrimitiveFieldsFileTest.ser");
         serFile = serPath.toFile();
         if (!serFile.exists()) {
-            final boolean success = serFile.createNewFile();
+            final var success = serFile.createNewFile();
             assertTrue(success);
         }
     }
@@ -30,7 +29,7 @@ public class MarketDataWithPrimitiveFieldsFileTest {
     void testSerialize() throws IOException {
         final var marketData = new MarketDataWithPrimitiveFieldsFile();
         marketData.setSecurityId("AAPL");
-        marketData.setTime(time);
+        marketData.setTime(10000L);
         marketData.setOpen(160.3D);
         marketData.setHigh(165.7D);
         marketData.setLow(157.2D);
@@ -54,14 +53,14 @@ public class MarketDataWithPrimitiveFieldsFileTest {
         try (final var ois = new ObjectInputStream(
                 new BufferedInputStream(
                         new FileInputStream(serFile)))) {
-            final MarketDataWithPrimitiveFieldsFile fromSerialize = (MarketDataWithPrimitiveFieldsFile) ois.readObject();
+            final var fromSerialize = (MarketDataWithPrimitiveFieldsFile) ois.readObject();
             System.out.println("After Serialization: ");
             System.out.println(fromSerialize);
 
             // assertions
             assertNotNull(fromSerialize);
             assertEquals("AAPL", fromSerialize.getSecurityId());
-            assertEquals(time, fromSerialize.getTime());
+            assertEquals(10000L, fromSerialize.getTime());
             assertEquals(160.3D, fromSerialize.getOpen());
             assertEquals(165.7D, fromSerialize.getHigh());
             assertEquals(157.2D, fromSerialize.getLow());

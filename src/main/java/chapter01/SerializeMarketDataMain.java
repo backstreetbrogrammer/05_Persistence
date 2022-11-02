@@ -47,7 +47,7 @@ public class SerializeMarketDataMain {
             while (true) {
                 final var object = ois.readObject();
                 if (object instanceof MarketData) {
-                    var marketData = (MarketData) object;
+                    final var marketData = (MarketData) object;
                     System.out.println("After Serialization: ");
                     System.out.println(marketData);
                 }

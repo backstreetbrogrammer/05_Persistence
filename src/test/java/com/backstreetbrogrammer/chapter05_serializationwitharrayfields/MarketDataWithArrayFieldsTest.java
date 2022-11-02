@@ -12,15 +12,14 @@ import static org.junit.jupiter.api.Assertions.*;
 public class MarketDataWithArrayFieldsTest {
 
     private File serFile;
-    private final long time = 10000L;
     private final String[] mdProviders = {"REUT", "BBG", "CHIX"};
 
     @BeforeEach
     void setUp() throws IOException {
-        final Path serPath = Path.of("src", "test", "resources", "MarketDataWithArrayFieldsTest.ser");
+        final var serPath = Path.of("src", "test", "resources", "MarketDataWithArrayFieldsTest.ser");
         serFile = serPath.toFile();
         if (!serFile.exists()) {
-            final boolean success = serFile.createNewFile();
+            final var success = serFile.createNewFile();
             assertTrue(success);
         }
     }
@@ -30,7 +29,7 @@ public class MarketDataWithArrayFieldsTest {
     void testSerialize() throws IOException {
         final var marketData = new MarketDataWithArrayFields();
         marketData.setSecurityId("AAPL");
-        marketData.setTime(time);
+        marketData.setTime(10000L);
         marketData.setOpen(160.3D);
         marketData.setHigh(165.7D);
         marketData.setLow(157.2D);
@@ -55,14 +54,14 @@ public class MarketDataWithArrayFieldsTest {
         try (final var ois = new ObjectInputStream(
                 new BufferedInputStream(
                         new FileInputStream(serFile)))) {
-            final MarketDataWithArrayFields fromSerialize = (MarketDataWithArrayFields) ois.readObject();
+            final var fromSerialize = (MarketDataWithArrayFields) ois.readObject();
             System.out.println("After Serialization: ");
             System.out.println(fromSerialize);
 
             // assertions
             assertNotNull(fromSerialize);
             assertEquals("AAPL", fromSerialize.getSecurityId());
-            assertEquals(time, fromSerialize.getTime());
+            assertEquals(10000L, fromSerialize.getTime());
             assertEquals(160.3D, fromSerialize.getOpen());
             assertEquals(165.7D, fromSerialize.getHigh());
             assertEquals(157.2D, fromSerialize.getLow());
@@ -70,7 +69,7 @@ public class MarketDataWithArrayFieldsTest {
             assertEquals(161.9D, fromSerialize.getLast());
             assertTrue(fromSerialize.isLevelOne());
 
-            final String[] fromSerializeMdProviders = fromSerialize.getMdProviders();
+            final var fromSerializeMdProviders = fromSerialize.getMdProviders();
             for (int i = 0; i < fromSerializeMdProviders.length; i++) {
                 assertEquals(mdProviders[i], fromSerializeMdProviders[i]);
             }

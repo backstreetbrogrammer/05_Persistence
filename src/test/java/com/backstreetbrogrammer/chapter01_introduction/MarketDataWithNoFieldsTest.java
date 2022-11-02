@@ -15,10 +15,10 @@ public class MarketDataWithNoFieldsTest {
 
     @BeforeEach
     void setUp() throws IOException {
-        final Path serPath = Path.of("src", "test", "resources", "MarketDataWithNoFieldsTest.ser");
+        final var serPath = Path.of("src", "test", "resources", "MarketDataWithNoFieldsTest.ser");
         serFile = serPath.toFile();
         if (!serFile.exists()) {
-            final boolean success = serFile.createNewFile();
+            final var success = serFile.createNewFile();
             assertTrue(success);
         }
     }
@@ -43,7 +43,7 @@ public class MarketDataWithNoFieldsTest {
         try (final var ois = new ObjectInputStream(
                 new BufferedInputStream(
                         new FileInputStream(serFile)))) {
-            final MarketDataWithNoFields fromSerialize = (MarketDataWithNoFields) ois.readObject();
+            final var fromSerialize = (MarketDataWithNoFields) ois.readObject();
             System.out.println("After Serialization: ");
             System.out.println(fromSerialize);
 

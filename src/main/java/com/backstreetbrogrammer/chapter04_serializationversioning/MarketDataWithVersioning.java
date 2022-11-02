@@ -22,7 +22,7 @@ public class MarketDataWithVersioning implements Serializable {
         return securityId;
     }
 
-    public void setSecurityId(String securityId) {
+    public void setSecurityId(final String securityId) {
         this.securityId = securityId;
     }
 
@@ -30,7 +30,7 @@ public class MarketDataWithVersioning implements Serializable {
         return time;
     }
 
-    public void setTime(long time) {
+    public void setTime(final long time) {
         this.time = time;
     }
 
@@ -38,7 +38,7 @@ public class MarketDataWithVersioning implements Serializable {
         return open;
     }
 
-    public void setOpen(double open) {
+    public void setOpen(final double open) {
         this.open = open;
     }
 
@@ -46,7 +46,7 @@ public class MarketDataWithVersioning implements Serializable {
         return high;
     }
 
-    public void setHigh(double high) {
+    public void setHigh(final double high) {
         this.high = high;
     }
 
@@ -54,7 +54,7 @@ public class MarketDataWithVersioning implements Serializable {
         return low;
     }
 
-    public void setLow(double low) {
+    public void setLow(final double low) {
         this.low = low;
     }
 
@@ -62,7 +62,7 @@ public class MarketDataWithVersioning implements Serializable {
         return close;
     }
 
-    public void setClose(double close) {
+    public void setClose(final double close) {
         this.close = close;
     }
 
@@ -70,7 +70,7 @@ public class MarketDataWithVersioning implements Serializable {
         return last;
     }
 
-    public void setLast(double last) {
+    public void setLast(final double last) {
         this.last = last;
     }
 
@@ -78,7 +78,7 @@ public class MarketDataWithVersioning implements Serializable {
         return isLevelOne;
     }
 
-    public void setLevelOne(boolean levelOne) {
+    public void setLevelOne(final boolean levelOne) {
         isLevelOne = levelOne;
     }
 
@@ -97,10 +97,10 @@ public class MarketDataWithVersioning implements Serializable {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        MarketDataWithVersioning that = (MarketDataWithVersioning) o;
+        final MarketDataWithVersioning that = (MarketDataWithVersioning) o;
         return time == that.time && Double.compare(that.open, open) == 0 && Double.compare(that.high, high) == 0 && Double.compare(that.low, low) == 0 && Double.compare(that.close, close) == 0 && Double.compare(that.last, last) == 0 && isLevelOne == that.isLevelOne && Objects.equals(securityId, that.securityId);
     }
 

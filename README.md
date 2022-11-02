@@ -3,82 +3,138 @@
 ## Table of contents
 
 ### Chapter 01 - Introduction
-Suppose I want to save the state of one or more objects. 
 
-If Java didn’t have serialization, I would have to use one of the IO classes to write out the state of the instance variables of all the objects I wanted to save - say to a csv, xml, json or just plain text.
+Suppose I want to save the state of one or more objects.
 
-Then I would need to reconstruct the objects that had been saved in the same order of instance fields as it was saved. This is error prone as we are doing lots of stuff manually here.
+If Java didn’t have serialization, I would have to use one of the IO classes to write out the state of the instance
+variables of all the objects I wanted to save - say to a csv, xml, json or just plain text.
 
-Also if the objects are huge - containing reference to other objects (Object Graphs) and many instance fields, then the manual processing of serialization and deserialization would be very complex and error prone.
+Then I would need to reconstruct the objects that had been saved in the same order of instance fields as it was saved.
+This is error prone as we are doing lots of stuff manually here.
 
-Java’s object serialization allows us to take any object that implements the Serializable interface and turn it into a sequence of bytes that can later be fully restored to regenerate the original object. 
+Also if the objects are huge - containing reference to other objects (Object Graphs) and many instance fields, then the
+manual processing of serialization and deserialization would be very complex and error prone.
 
-This is even true across a network, which means that the serialization mechanism automatically compensates for differences in operating systems. 
+Java’s object serialization allows us to take any object that implements the Serializable interface and turn it into a
+sequence of bytes that can later be fully restored to regenerate the original object.
 
-That is, I can create an object on a Windows machine, serialize it, and send it across the network to a Unix machine, where it will be correctly reconstructed. 
+This is even true across a network, which means that the serialization mechanism automatically compensates for
+differences in operating systems.
+
+That is, I can create an object on a Windows machine, serialize it, and send it across the network to a Unix machine,
+where it will be correctly reconstructed.
 
 I don’t have to worry about the data representations on the different machines, the byte ordering, or any other details.
 
-Java POJO class object containing only primitive fields (int, char, float, double, long) and String fields can be serialized by just implementing Serializable interface and using these 2 methods:
+Java POJO class object containing only primitive fields (int, char, float, double, long) and String fields can be
+serialized by just implementing Serializable interface and using these 2 methods:
 
 - ObjectOutputStream.writeObject() => serialize and write
 - ObjectInputStream.readObject() => read and deserialize
 
-
 ### Chapter 02 - Serialization with memory buffer
 
-The first example is using memory as buffer to where the serialized streams of bytes will be written to and then retrieved from using desrialization.
+The first example is using memory as buffer to where the serialized streams of bytes will be written to and then
+retrieved from using desrialization.
 
 - Java Object => Serialize to byte array => Memory
 - Memory => Deserialize from byte array => Java Object
 
-**ByteArrayOutputStream** class is used to serialize to byte array.
-This class implements an output stream in which the data is written into a byte array. The buffer automatically grows as data is written to it. The data can be retrieved using toByteArray() and toString().
+**ByteArrayOutputStream** class is used to serialize to byte array. This class implements an output stream in which the
+data is written into a byte array. The buffer automatically grows as data is written to it. The data can be retrieved
+using toByteArray() and toString().
 
-**ByteArrayInputStream** class is used to deserialize from byte array.
-This class contains an internal buffer that contains bytes that may be read from the stream. An internal counter keeps track of the next byte to be supplied by the read method.
+**ByteArrayInputStream** class is used to deserialize from byte array. This class contains an internal buffer that
+contains bytes that may be read from the stream. An internal counter keeps track of the next byte to be supplied by the
+read method.
 
-**Drawback** using memory buffer is that once the JVM shuts down - the serialized data in memory is erased and can not be used after application restart.
-
+**Drawback** using memory buffer is that once the JVM shuts down - the serialized data in memory is erased and can not
+be used after application restart.
 
 ### Chapter 03 - Serialization with file
 
-It would be incredibly useful if an object could exist and hold its information even while the program wasn’t running. 
+It would be incredibly useful if an object could exist and hold its information even while the program wasn’t running.
 
-Then, the next time we started the program, the object would be there and it would have the same information or state it had the previous time the program was running.
+Then, the next time we started the program, the object would be there and it would have the same information or state it
+had the previous time the program was running.
 
-Object serialization allows us to implement persistence. **Persistence** means that an object’s lifetime is not determined by whether a program is executing; the object lives in between invocations of the program. By taking a serializable object and writing it to disk (via file), then restoring that object when the program is reinvoked, we’re able to produce the effect of persistence.
+Object serialization allows us to implement persistence. **Persistence** means that an object’s lifetime is not
+determined by whether a program is executing; the object lives in between invocations of the program. By taking a
+serializable object and writing it to disk (via file), then restoring that object when the program is reinvoked, we’re
+able to produce the effect of persistence.
 
 - Java Object => Stream of bytes => File
 - File => Deserialize from stream of bytes => Java Object
 
-**FileOutputStream** class is used to write the serialized stream of bytes to file on the disk.
-This class is an output stream for writing data to a File and is meant for writing streams of raw bytes such as image data.
+**FileOutputStream** class is used to write the serialized stream of bytes to file on the disk. This class is an output
+stream for writing data to a File and is meant for writing streams of raw bytes such as image data.
 
-**FileInputStream** class is used to read the stream of bytes from the file.
-This class obtains input bytes from a file in a file system and is meant for reading streams of raw bytes such as image data.
-
+**FileInputStream** class is used to read the stream of bytes from the file. This class obtains input bytes from a file
+in a file system and is meant for reading streams of raw bytes such as image data.
 
 ### Chapter 04 - Serialization versioning
-Suppose we have a class and we have serialized its object to a file on the disk, and due to some new requirements, we added/removed one field from our class. 
-Or just added a new utility method to it. Now, if we try to deserialize the already serialized object, we will get _InvalidClassException_.
 
-When we serialize a class, each class has a unique identification number associated with it.
-Its also called stream unique identifiers, more commonly known as serial versionUIDs.
+Suppose we have a class and we have serialized its object to a file on the disk, and due to some new requirements, we
+added/removed one field from our class. Or just added a new utility method to it. Now, if we try to deserialize the
+already serialized object, we will get _InvalidClassException_.
 
-If we do not specify this number by declaring a static final long field named serialVersionUID, 
-the system automatically generates it at runtime by applying a cryptographic hash function (SHA-1) to the structure of the class.
+When we serialize a class, each class has a unique identification number associated with it. Its also called stream
+unique identifiers, more commonly known as serial versionUIDs.
 
-This value is affected by the names of the class, the interfaces it implements, and most of its members, including synthetic members generated by the compiler.
+If we do not specify this number by declaring a static final long field named serialVersionUID, the system automatically
+generates it at runtime by applying a cryptographic hash function (SHA-1) to the structure of the class.
+
+This value is affected by the names of the class, the interfaces it implements, and most of its members, including
+synthetic members generated by the compiler.
 
 If we change any of these things, for example, by adding a convenience method, the generated serial version UID changes.
-If we fail to declare a serial version UID, compatibility will be broken, resulting in an _InvalidClassException_ at runtime.
+If we fail to declare a serial version UID, compatibility will be broken, resulting in an _InvalidClassException_ at
+runtime.
 
-The basic idea is a class could have been serialized with an older version of the class and deserialized with a newer version of the class.
+The basic idea is a class could have been serialized with an older version of the class and deserialized with a newer
+version of the class.
 
-The _serialVersionUID_ helps inform the JVM that the stored data may not match the new class definition. 
+The _serialVersionUID_ helps inform the JVM that the stored data may not match the new class definition.
 
 Thus, if an older version of the class is encountered during deserialization, a java.io.InvalidClassException is thrown.
 
-*Conclusion*: It's a good practice to declare a static serialVersionUID variable in every class that implements Serializable.
+*Conclusion*: It's a good practice to declare a static serialVersionUID variable in every class that implements
+Serializable.
+
+### Chapter 05 - Serialization with array field members
+
+Suppose we have a class which has array of primitives or array of Objects as its field members.
+
+In this scenario, we need to ensure that every element in the array is Serializable, otherwise the serialization will
+fail.
+
+### Chapter 06 - Serialization with Java Objects as array
+
+If we have an array of a serializable class objects, the whole array can be serialized in one go by just calling
+writeObject() method from ObjectOutputStream class.
+
+We need to ensure that every element in the array is Serializable, otherwise the serialization will fail.
+
+Similarly, while deserialization, the whole array object can be read by calling readObject() method from
+ObjectInputStream class.
+
+### Chapter 07 - Serialization with collection field members
+
+Suppose we have a class which has collection of objects say List as its field members.
+
+In this scenario, we need to ensure that every element in the collection is Serializable, otherwise the serialization
+will fail.
+
+Please note that while the collection interfaces like List, Set, etc. are NOT serializable, the concrete collection
+classes like ArrayList, HashSet etc. ARE serializable.
+
+### Chapter 08 - Serialization with Java Objects as Collection
+
+If we have a collection (List, Set, etc) of a serializable class objects, the whole collection can be serialized in one
+go by just calling writeObject() method from ObjectOutputStream class.
+
+We need to ensure that every element in the collection is Serializable, otherwise the serialization will fail.
+
+Similarly, while deserialization, the whole collection object can be read by calling readObject() method from
+ObjectInputStream class.
 

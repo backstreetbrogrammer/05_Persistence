@@ -34,7 +34,7 @@ public class MarketDataWithPrimitiveFieldsTest {
         try (final var ois = new ObjectInputStream(
                 new BufferedInputStream(
                         new ByteArrayInputStream(bout.toByteArray())))) {
-            final MarketDataWithPrimitiveFields fromSerialize = (MarketDataWithPrimitiveFields) ois.readObject();
+            final var fromSerialize = (MarketDataWithPrimitiveFields) ois.readObject();
             System.out.println("After Serialization: ");
             System.out.println(fromSerialize);
 

@@ -1,8 +1,12 @@
-package com.backstreetbrogrammer.chapter03_serializationwithfile;
+package com.backstreetbrogrammer.chapter07_serializationwithlistfields;
 
 import java.io.Serializable;
+import java.util.List;
 
-public class MarketDataWithPrimitiveFieldsFile implements Serializable {
+public class MarketDataWithListFields implements Serializable {
+
+    private static final long serialVersionUID = 4459041938456046072L;
+
     private String securityId;
     private long time;
     private double open;
@@ -11,8 +15,9 @@ public class MarketDataWithPrimitiveFieldsFile implements Serializable {
     private double close;
     private double last;
     private boolean isLevelOne;
+    private List<String> mdProviders;
 
-    public MarketDataWithPrimitiveFieldsFile() {
+    public MarketDataWithListFields() {
     }
 
     public String getSecurityId() {
@@ -79,9 +84,17 @@ public class MarketDataWithPrimitiveFieldsFile implements Serializable {
         isLevelOne = levelOne;
     }
 
+    public List<String> getMdProviders() {
+        return mdProviders;
+    }
+
+    public void setMdProviders(final List<String> mdProviders) {
+        this.mdProviders = mdProviders;
+    }
+
     @Override
     public String toString() {
-        return "MarketDataWithPrimitiveFieldsFile{" +
+        return "MarketDataWithListFields{" +
                 "securityId='" + securityId + '\'' +
                 ", time=" + time +
                 ", open=" + open +
@@ -90,6 +103,7 @@ public class MarketDataWithPrimitiveFieldsFile implements Serializable {
                 ", close=" + close +
                 ", last=" + last +
                 ", isLevelOne=" + isLevelOne +
+                ", mdProviders=" + mdProviders +
                 '}';
     }
 }
