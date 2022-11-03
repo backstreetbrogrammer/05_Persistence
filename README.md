@@ -138,3 +138,45 @@ We need to ensure that every element in the collection is Serializable, otherwis
 Similarly, while deserialization, the whole collection object can be read by calling readObject() method from
 ObjectInputStream class.
 
+### Chapter 09 - Serialization with Enum Constants
+
+As per Java specifications, Enum constants are serialized differently than ordinary serializable objects.
+
+The serialized form of an enum constant consists solely of its name; field values of the constant are not present in the
+form.
+
+To **serialize** an enum constant, **ObjectOutputStream** writes the value returned by the enum constant’s **name()**
+method.
+
+For reference,
+
+- **name()** is an instance method which returns the name of the instance.
+- **valueOf()** is a static method taking a **String** and returning the enum instance with that name.
+- **values()** is a static method returning all the enum instances.
+
+To **deserialize** an enum constant, **ObjectInputStream** reads the constant name from the stream; the deserialized
+constant is then obtained by calling the **valueOf()** method, passing the constant’s enum type along with the received
+constant name as arguments.
+
+Few more points to take note of:
+
+- enum types have a fixed **serialVersionUID** of **0L** and cannot be changed
+- process by which enum constants are serialized cannot be customized: any class-specific **writeObject(), readObject(),
+  readObjectNoData(), writeReplace(),** and **readResolve()** methods defined by enum types are ignored during
+  serialization and deserialization
+
+### Chapter 10 - Serialization with static fields
+
+Static fields are NEVER saved as part of the object’s state.
+
+We should think of static variables purely as CLASS variables. They have nothing to do with individual instances. And
+serialization applies only to OBJECTS.
+
+Suppose we have 3 instances of a Serializable class => all of which were serialized at different times, and thus all of
+which were saved when the value of a static variable in the class was different.
+
+Now, if static variables were serializable, which of the 3 instances would win ? OR, Which instance’s static value would
+be used to replace the one currently in the one and only class that’s currently loaded ?
+
+=> this is a problem… that’s why, static fields are never part of serialization / deserialization process.
+
