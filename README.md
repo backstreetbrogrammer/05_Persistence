@@ -180,3 +180,31 @@ be used to replace the one currently in the one and only class that’s currentl
 
 => this is a problem… that’s why, static fields are never part of serialization / deserialization process.
 
+### Chapter 11 - Object graphs
+
+Java's default serialization process is fully recursive, so whenever we try to serialize one object, the serialization
+process try to serialize all the fields (primitive and reference) with our class (except static and transient fields).
+
+The reference to objects fields are serialized and Java serialization takes care of saving that object’s entire “object
+graph”. That means a deep copy of everything the saved objects needs to be stored.
+
+Just remember to implement the Serialization interface for all the objects in the “object graph” - otherwise we will get
+NotSerializableException.
+
+### Chapter 12 - Using transient keyword
+
+Suppose one of the objects in the “object graph” is not accessible (meaning we can’t modify it due to permission issues)
+and not marked as Serializable. In that case, are we blocked to Serialize our main class which has reference to that
+read-only object?
+
+One option is to subclass that read-only class, but it may be marked as final. OR, we don’t know if the read-only class
+object has other similar objects in its own “object graph”.
+
+There are other private members fields (primitive and reference) of a class which contains sensitive data like passwords,
+or it doesn’t make sense to serialize it - like the state of an in-memory Thread.
+
+That’s where the transient modifier comes in. By marking the members fields (primitive and reference) as transient,
+these fields are NOT serialized just like static fields.
+
+What happens to data marked transient on deserialization? It reverts to its default Java values, such as 0.0D for
+double, false for boolean or null for an object.
