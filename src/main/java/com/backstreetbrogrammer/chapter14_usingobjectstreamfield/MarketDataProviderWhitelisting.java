@@ -1,11 +1,15 @@
-package com.backstreetbrogrammer.chapter12_transient;
+package com.backstreetbrogrammer.chapter14_usingobjectstreamfield;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class MarketDataProviderTransient {
+public class MarketDataProviderWhitelisting implements Serializable {
+
+    private static final long serialVersionUID = 1335168121172928353L;
+
     private String name;
 
-    public MarketDataProviderTransient(final String name) {
+    public MarketDataProviderWhitelisting(final String name) {
         this.name = name;
     }
 
@@ -19,7 +23,7 @@ public class MarketDataProviderTransient {
 
     @Override
     public String toString() {
-        return "MarketDataProviderTransient{" +
+        return "MarketDataProviderWhitelisting{" +
                 "name='" + name + '\'' +
                 '}';
     }
@@ -28,7 +32,7 @@ public class MarketDataProviderTransient {
     public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        final MarketDataProviderTransient that = (MarketDataProviderTransient) o;
+        final MarketDataProviderWhitelisting that = (MarketDataProviderWhitelisting) o;
         return Objects.equals(name, that.name);
     }
 

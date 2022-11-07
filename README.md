@@ -236,3 +236,14 @@ By implementing these 2 methods, we can customize or control the default Java se
 
 Also, we can call the methods like `ObjectOutputStream.defaultWriteObject()` and `ObjectInputStream.defaultReadObject()`
 to invoke the default Java serialization process inside `writeObject()` and `readObject()` methods respectively.
+
+### Chapter 14 - Using ObjectStreamField
+
+In case of `transient` keyword, we chose which member fields (primitive and reference) of a class SHOULD NOT participate
+in serialization and deserialization process. This is also called as **blacklisting**.
+
+Using `ObjectStreamField` class and `ObjectOutputStream.putFields` and `ObjectInputStream.readFields`, we can choose
+which member fields (primitive and reference) of a class SHOULD participate in serialization and deserialization
+process. This is also called as **whitelisting**.
+
+Ideally **whitelisting** should be preferred over **blacklisting** as we have full control on which fields to serialize or not.

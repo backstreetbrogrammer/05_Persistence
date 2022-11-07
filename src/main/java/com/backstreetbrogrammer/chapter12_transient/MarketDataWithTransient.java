@@ -23,7 +23,7 @@ public class MarketDataWithTransient implements Serializable {
         return securityId;
     }
 
-    public void setSecurityId(String securityId) {
+    public void setSecurityId(final String securityId) {
         this.securityId = securityId;
     }
 
@@ -31,7 +31,7 @@ public class MarketDataWithTransient implements Serializable {
         return time;
     }
 
-    public void setTime(long time) {
+    public void setTime(final long time) {
         this.time = time;
     }
 
@@ -39,7 +39,7 @@ public class MarketDataWithTransient implements Serializable {
         return open;
     }
 
-    public void setOpen(double open) {
+    public void setOpen(final double open) {
         this.open = open;
     }
 
@@ -47,7 +47,7 @@ public class MarketDataWithTransient implements Serializable {
         return high;
     }
 
-    public void setHigh(double high) {
+    public void setHigh(final double high) {
         this.high = high;
     }
 
@@ -55,7 +55,7 @@ public class MarketDataWithTransient implements Serializable {
         return low;
     }
 
-    public void setLow(double low) {
+    public void setLow(final double low) {
         this.low = low;
     }
 
@@ -63,7 +63,7 @@ public class MarketDataWithTransient implements Serializable {
         return close;
     }
 
-    public void setClose(double close) {
+    public void setClose(final double close) {
         this.close = close;
     }
 
@@ -71,7 +71,7 @@ public class MarketDataWithTransient implements Serializable {
         return last;
     }
 
-    public void setLast(double last) {
+    public void setLast(final double last) {
         this.last = last;
     }
 
@@ -79,7 +79,7 @@ public class MarketDataWithTransient implements Serializable {
         return isLevelOne;
     }
 
-    public void setLevelOne(boolean levelOne) {
+    public void setLevelOne(final boolean levelOne) {
         isLevelOne = levelOne;
     }
 
@@ -87,7 +87,7 @@ public class MarketDataWithTransient implements Serializable {
         return marketDataProvider;
     }
 
-    public void setMarketDataProvider(MarketDataProviderTransient marketDataProvider) {
+    public void setMarketDataProvider(final MarketDataProviderTransient marketDataProvider) {
         this.marketDataProvider = marketDataProvider;
     }
 

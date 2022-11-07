@@ -1,13 +1,10 @@
-package com.backstreetbrogrammer.chapter13_writeObjectReadObject;
+package com.backstreetbrogrammer.chapter14_usingobjectstreamfield;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import java.io.*;
 
-public class MarketDataWithWriteObjectReadObject implements Serializable {
+public class MarketDataWhitelisting implements Serializable {
 
-    private static final long serialVersionUID = -81051919619200610L;
+    private static final long serialVersionUID = 5146363952418217459L;
 
     private String securityId;
     private long time;
@@ -18,9 +15,9 @@ public class MarketDataWithWriteObjectReadObject implements Serializable {
     private double last;
     private boolean isLevelOne;
 
-    private transient MarketDataProviderWriteObjectReadObject marketDataProvider;
+    private MarketDataProviderWhitelisting marketDataProvider;
 
-    public MarketDataWithWriteObjectReadObject() {
+    public MarketDataWhitelisting() {
     }
 
     public String getSecurityId() {
@@ -87,17 +84,17 @@ public class MarketDataWithWriteObjectReadObject implements Serializable {
         isLevelOne = levelOne;
     }
 
-    public MarketDataProviderWriteObjectReadObject getMarketDataProvider() {
+    public MarketDataProviderWhitelisting getMarketDataProvider() {
         return marketDataProvider;
     }
 
-    public void setMarketDataProvider(final MarketDataProviderWriteObjectReadObject marketDataProvider) {
+    public void setMarketDataProvider(final MarketDataProviderWhitelisting marketDataProvider) {
         this.marketDataProvider = marketDataProvider;
     }
 
     @Override
     public String toString() {
-        return "MarketDataWithWriteObjectReadObject{" +
+        return "MarketDataWhitelisting{" +
                 "securityId='" + securityId + '\'' +
                 ", time=" + time +
                 ", open=" + open +
@@ -110,10 +107,19 @@ public class MarketDataWithWriteObjectReadObject implements Serializable {
                 '}';
     }
 
+    private static final ObjectStreamField[] serialPersistentFields = {
+            new ObjectStreamField("securityId", String.class),
+            new ObjectStreamField("time", Long.TYPE),
+            new ObjectStreamField("last", Double.TYPE)
+    };
+
     private void writeObject(final ObjectOutputStream os) throws IOException {
         try {
-            os.defaultWriteObject();
-            os.writeUTF(marketDataProvider.getName());
+            final ObjectOutputStream.PutField fields = os.putFields();
+            fields.put("securityId", securityId);
+            fields.put("time", time);
+            fields.put("last", last);
+            os.writeFields();
         } catch (final Exception e) {
             e.printStackTrace();
         }
@@ -121,8 +127,10 @@ public class MarketDataWithWriteObjectReadObject implements Serializable {
 
     private void readObject(final ObjectInputStream is) throws IOException, ClassNotFoundException {
         try {
-            is.defaultReadObject();
-            marketDataProvider = new MarketDataProviderWriteObjectReadObject(is.readUTF());
+            final ObjectInputStream.GetField fields = is.readFields();
+            securityId = (String) fields.get("securityId", null);
+            time = fields.get("time", 0L);
+            last = fields.get("last", 0D);
         } catch (final Exception e) {
             e.printStackTrace();
         }
