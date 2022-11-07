@@ -32,6 +32,8 @@ can be serialized by just implementing `Serializable` interface and using these 
 - `ObjectOutputStream.writeObject()` => serialize and write
 - `ObjectInputStream.readObject()` => read and deserialize
 
+---
+
 ### Chapter 02 - Serialization with memory buffer
 
 The first example is using memory as buffer to where the serialized streams of bytes will be written to and then
@@ -50,6 +52,8 @@ read method.
 
 **Drawback** using memory buffer is that once the JVM shuts down - the serialized data in memory is erased and can not
 be used after application restart.
+
+---
 
 ### Chapter 03 - Serialization with file
 
@@ -71,6 +75,8 @@ stream for writing data to a File and is meant for writing streams of raw bytes 
 
 `FileInputStream` class is used to read the stream of bytes from the file. This class obtains input bytes from a file in
 a file system and is meant for reading streams of raw bytes such as image data.
+
+---
 
 ### Chapter 04 - Serialization versioning
 
@@ -102,12 +108,16 @@ thrown.
 *Conclusion*: It's a good practice to declare a static `serialVersionUID` variable in every class that implements
 `Serializable`.
 
+---
+
 ### Chapter 05 - Serialization with array field members
 
 Suppose we have a class which has array of primitives or array of Objects as its field members.
 
 In this scenario, we need to ensure that every element in the array is `Serializable`, otherwise the serialization will
 fail.
+
+---
 
 ### Chapter 06 - Serialization with Java Objects as array
 
@@ -119,6 +129,8 @@ We need to ensure that every element in the array is `Serializable`, otherwise t
 Similarly, while deserialization, the whole array object can be read by calling `readObject()` method from
 `ObjectInputStream` class.
 
+---
+
 ### Chapter 07 - Serialization with collection field members
 
 Suppose we have a class which has collection of objects say List as its field members.
@@ -129,6 +141,8 @@ will fail.
 Please note that while the collection interfaces like List, Set, etc. are NOT serializable, the concrete collection
 classes like `ArrayList`, `HashSet` etc. ARE serializable.
 
+---
+
 ### Chapter 08 - Serialization with Java Objects as Collection
 
 If we have a collection (`List`, `Set`, etc) of a serializable class objects, the whole collection can be serialized in
@@ -138,6 +152,8 @@ We need to ensure that every element in the collection is `Serializable`, otherw
 
 Similarly, while deserialization, the whole collection object can be read by calling `readObject()` method from
 `ObjectInputStream` class.
+
+---
 
 ### Chapter 09 - Serialization with Enum Constants
 
@@ -167,6 +183,8 @@ Few more points to take note of:
   `readObjectNoData()`, `writeReplace()` and `readResolve()` methods defined by enum types are ignored during
   serialization and deserialization
 
+---
+
 ### Chapter 10 - Serialization with static fields
 
 Static fields are NEVER saved as part of the object’s state.
@@ -182,6 +200,8 @@ be used to replace the one currently in the one and only class that’s currentl
 
 => this is a problem… that’s why, static fields are never part of serialization / deserialization process.
 
+---
+
 ### Chapter 11 - Object graphs
 
 Java's default serialization process is fully recursive, so whenever we try to serialize one object, the serialization
@@ -194,6 +214,8 @@ graph”. That means a deep copy of everything the saved objects needs to be sto
 Just remember to implement the `Serializable` interface for all the objects in the “object graph” - otherwise we will
 get
 `NotSerializableException`.
+
+---
 
 ### Chapter 12 - Using transient keyword
 
@@ -212,6 +234,8 @@ these fields are NOT serialized just like `static` fields.
 
 What happens to data marked `transient` on deserialization? It reverts to its default Java values, such as `0.0D` for
 `double`, `false` for `boolean` or `null` for an object.
+
+---
 
 ### Chapter 13 - Using writeObject() and readObject()
 
@@ -237,6 +261,8 @@ By implementing these 2 methods, we can customize or control the default Java se
 Also, we can call the methods like `ObjectOutputStream.defaultWriteObject()` and `ObjectInputStream.defaultReadObject()`
 to invoke the default Java serialization process inside `writeObject()` and `readObject()` methods respectively.
 
+---
+
 ### Chapter 14 - Using ObjectStreamField
 
 In case of `transient` keyword, we chose which member fields (primitive and reference) of a class SHOULD NOT participate
@@ -246,4 +272,7 @@ Using `ObjectStreamField` class and `ObjectOutputStream.putFields` and `ObjectIn
 which member fields (primitive and reference) of a class SHOULD participate in serialization and deserialization
 process. This is also called as **whitelisting**.
 
-Ideally **whitelisting** should be preferred over **blacklisting** as we have full control on which fields to serialize or not.
+Ideally **whitelisting** should be preferred over **blacklisting** as we have full control on which fields to serialize
+or not.
+
+---
