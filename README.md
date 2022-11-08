@@ -38,6 +38,12 @@ Serialization is mainly used in Hibernate, RMI, JPA and JMS technologies.
 15. Protecting sensitive information
 16. How Inheritance Affects Serialization
 17. Using Externalizable
+18. Using ObjectInputValidation
+19. Using writeReplace() and readResolve()
+20. Singleton pattern and readResolve()
+21. Using ObjectInputFilter
+22. Serialization Proxy Pattern
+23. Exercises and Solutions
 
 ---
 
@@ -405,3 +411,22 @@ When an `Externalizable` object is reconstructed, the object is created using pu
 If a public no-arg constructor is not present then a `InvalidClassException` is thrown at runtime.
 
 ---
+
+### Chapter 18 - Using ObjectInputValidation
+
+Suppose we have done the deserialization of a complete object graph, and now we want to validate the invariants of the
+objects.
+
+We can do that by implementing `ObjectInputValidation` interface and overriding the `validateObject()` method from it.
+
+The method `validateObject()` will automatically get called when we register this validation by calling
+`ObjectInputStream.registerValidation()` from `readObject()` method.
+
+It is very useful to verify that stream has not been tampered with, or that the data makes sense before handing it back
+to your application.
+
+If the object cannot be made valid, it should throw the `InvalidObjectException`. Any exception that occurs during a
+call to `validateObject()` will terminate the validation process, and the `InvalidObjectException` will be thrown.
+
+---
+

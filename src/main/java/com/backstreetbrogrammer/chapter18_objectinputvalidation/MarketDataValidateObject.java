@@ -1,9 +1,10 @@
-package com.backstreetbrogrammer.chapter17_externalizable;
+package com.backstreetbrogrammer.chapter18_objectinputvalidation;
 
 import java.io.*;
 
-public class MarketDataExternalizable implements Externalizable {
-    private static final long serialVersionUID = -7860178587676652067L;
+public class MarketDataValidateObject implements Serializable, ObjectInputValidation {
+
+    private static final long serialVersionUID = -8365445356039131264L;
 
     private String securityId;
     private long time;
@@ -11,12 +12,10 @@ public class MarketDataExternalizable implements Externalizable {
     private double high;
     private double low;
     private double close;
+    private double last;
     private boolean isLevelOne;
 
-    private transient double last;
-    private static String mdProvider;
-
-    public MarketDataExternalizable() {
+    public MarketDataValidateObject() {
     }
 
     public String getSecurityId() {
@@ -67,14 +66,6 @@ public class MarketDataExternalizable implements Externalizable {
         this.close = close;
     }
 
-    public boolean isLevelOne() {
-        return isLevelOne;
-    }
-
-    public void setLevelOne(final boolean levelOne) {
-        isLevelOne = levelOne;
-    }
-
     public double getLast() {
         return last;
     }
@@ -83,54 +74,49 @@ public class MarketDataExternalizable implements Externalizable {
         this.last = last;
     }
 
-    public static String getMdProvider() {
-        return mdProvider;
+    public boolean isLevelOne() {
+        return isLevelOne;
     }
 
-    public static void setMdProvider(final String mdProvider) {
-        MarketDataExternalizable.mdProvider = mdProvider;
+    public void setLevelOne(final boolean levelOne) {
+        isLevelOne = levelOne;
     }
 
     @Override
     public String toString() {
-        return "MarketDataExternalizable{" +
+        return "MarketDataValidateObject{" +
                 "securityId='" + securityId + '\'' +
                 ", time=" + time +
                 ", open=" + open +
                 ", high=" + high +
                 ", low=" + low +
                 ", close=" + close +
-                ", isLevelOne=" + isLevelOne +
                 ", last=" + last +
-                ", mdProvider=" + mdProvider +
+                ", isLevelOne=" + isLevelOne +
                 '}';
     }
 
-    @Override
-    public void writeExternal(final ObjectOutput out) throws IOException {
-        out.writeUTF(securityId);
-        out.writeLong(time);
-        out.writeBoolean(isLevelOne);
-
-        out.writeDouble(last);
-        out.writeUTF(mdProvider);
-    }
-
-    @Override
-    public void readExternal(final ObjectInput in) throws IOException {
-        securityId = in.readUTF();
-        time = in.readLong();
-        isLevelOne = in.readBoolean();
-
-        last = in.readDouble();
-        mdProvider = in.readUTF();
-    }
-
     private void writeObject(final ObjectOutputStream os) throws IOException {
-        System.out.println("writeObject() will never be called");
+        try {
+            os.defaultWriteObject();
+        } catch (final Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void readObject(final ObjectInputStream is) throws IOException, ClassNotFoundException {
-        System.out.println("readObject() will never be called");
+        try {
+            is.registerValidation(this, 0);
+            is.defaultReadObject();
+        } catch (final Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void validateObject() throws InvalidObjectException {
+        if (time < 0L) {
+            throw new InvalidObjectException(String.format("time %d can never be negative", time));
+        }
     }
 }
