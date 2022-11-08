@@ -37,6 +37,7 @@ Serialization is mainly used in Hibernate, RMI, JPA and JMS technologies.
 14. Using ObjectStreamField
 15. Protecting sensitive information
 16. How Inheritance Affects Serialization
+17. Using Externalizable
 
 ---
 
@@ -385,3 +386,22 @@ In fact, every constructor ABOVE the first non-serializable class constructor wi
 
 ---
 
+### Chapter 17 - Using Externalizable
+
+If we want to fully control serialization and override JVM default serialization process, we can implement the
+`Externalizable` interface and override its methods `writeExternal()` and `readExternal()`.
+
+Using `Externalizable`, complete serialization/deserialization logic becomes our responsibility.
+
+We need to tell what to serialize using `writeExternal()` method and what to deserialize using `readExternal()`. With
+implementation of `writeExternal()` and `readExternal()`, methods `writeObject()` and `readObject()` becomes redundant
+and do not get called.
+
+We can even serialize/deserialize static and `transient` variables, although it will be a bad practice to do so.
+
+When an `Externalizable` object is reconstructed, the object is created using public no-arg constructor before the
+`readExternal()` method is called.
+
+If a public no-arg constructor is not present then a `InvalidClassException` is thrown at runtime.
+
+---
