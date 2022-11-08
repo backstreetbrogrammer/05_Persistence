@@ -1,10 +1,7 @@
-package chapter01;
+package com.backstreetbrogrammer.chapter16_inheritance;
 
-import java.io.Serializable;
+public class Identifiable {
 
-public class Identifiable implements Serializable {
-    private static final long serialVersionUID = 43L;
-    
     private String id;
 
     public String getId() {

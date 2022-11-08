@@ -1,4 +1,4 @@
-package chapter01;
+package com.backstreetbrogrammer.scratch;
 
 public class MarketDataProvider {
     private String name;

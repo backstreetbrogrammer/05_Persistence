@@ -1,6 +1,44 @@
-# 05_Persistence
+# Java Serialization
+
+> Java provides a mechanism, called object serialization where an object can be represented as a sequence of bytes that includes the object's data as well as information about the object's type and the types of data stored in the object.
+
+Serialization is the conversion of the state of an object into a byte stream; deserialization does the opposite. Stated
+differently, serialization is the conversion of a Java object into a static stream (sequence) of bytes, which we can
+then save to a database or file or transfer over a network.
+
+The reverse operation of serialization is called deserialization where byte-stream is converted into a "copy" of the
+object.
+
+The serialization and deserialization process is platform-independent, it means you can serialize an object on one
+platform and deserialize it on a different platform.
+
+For serializing the object, we call the `writeObject()` method of `ObjectOutputStream` class, and for deserialization we
+call the `readObject()` method of `ObjectInputStream` class.
+
+We must have to implement the `Serializable` interface for serializing the object.
+
+Serialization is mainly used in Hibernate, RMI, JPA and JMS technologies.
 
 ## Table of contents
+
+1. Introduction
+2. Serialization with memory buffer
+3. Serialization with file
+4. Serialization versioning
+5. Serialization with array field members
+6. Serialization with Java Objects as array
+7. Serialization with collection field members
+8. Serialization with Java Objects as Collection
+9. Serialization with Enum Constants
+10. Serialization with static fields
+11. Object graphs
+12. Using transient keyword
+13. Using writeObject() and readObject()
+14. Using ObjectStreamField
+15. Protecting sensitive information
+16. How Inheritance Affects Serialization
+
+---
 
 ### Chapter 01 - Introduction
 
@@ -250,11 +288,19 @@ These 2 special methods we define must have signatures that look EXACTLY like th
 
 1) For serialization
 
-`private void writeObject(ObjectOutputStream stream) { // code for saving the object }`
+````
+private void writeObject(ObjectOutputStream stream) { 
+   // code for saving the object 
+}
+````
 
 2) For deserialization:
 
-`private void readObject(ObjectlnputStream stream) { // code for restoring the same object as it was saved although if its transient }`
+````
+private void readObject(ObjectlnputStream stream) { 
+   // code for restoring the same object as it was saved although if its transient 
+}
+````
 
 By implementing these 2 methods, we can customize or control the default Java serialization process.
 
@@ -276,3 +322,66 @@ Ideally **whitelisting** should be preferred over **blacklisting** as we have fu
 or not.
 
 ---
+
+### Chapter 15 - Protecting sensitive information
+
+When developing a class that provides controlled access to resources, care must be taken to protect sensitive
+information and functions. During deserialization, the private state of the object is restored. To avoid compromising a
+class, the sensitive state of an object must not be restored from the stream, or it must be re-verified by the class.
+
+The easiest technique is to mark fields that contain sensitive data as `private transient`. Transient fields are not
+persistent and will not be saved by any persistence mechanism. Marking the field will prevent the state from appearing
+in the stream and from being restored during deserialization. Since writing and reading (of private fields) cannot be
+superseded outside the class, the `transient` fields of the class are safe.
+
+However, if we really want to serialize secured or confidential fields, we should use **encryption** and **decryption**
+of the field.
+
+---
+
+### Chapter 16 - How Inheritance Affects Serialization
+
+If a **superclass** is `Serializable`, then all **subclasses** are automatically `Serializable` without having to
+explicitly mark the subclass as `Serializable`.
+
+If a class does NOT explicitly extend any other class and does NOT implement `Serializable`, then we can confirm that
+the class is NOT serializable as class `Object` does NOT implement `Serializable`.
+
+Now suppose a subclass implements `Serializable` but the super class does NOT. How is this going to affect
+serialization?
+
+When an object is constructed using new (as opposed to being deserialized), following things happen in this sequence:
+
+1.All instance variables are assigned **default** values - like `int` as `0`, `double` as `0D`, `boolean` as `false`
+, `String` as `null`, etc.
+
+2.The **constructor** is invoked, which immediately invokes the superclass constructor OR another overloaded
+constructor, until one of the overloaded constructors invokes the superclass constructor.
+
+3.All **superclass constructors** complete.
+
+4.Instance variables that are initialized as part of their declaration are assigned their initial value overriding the
+default values they’re given prior to the superclass constructors completing.
+
+5.The constructor completes.
+
+BUT, these things do NOT happen when an object is **deserialized**.
+
+If the constructor were invoked, and/or variables were assigned the values given in their declarations, the object we
+are trying to restore would revert to its original state, rather than coming back reflecting the changes in its state
+that happened sometime after it was created.
+
+In other words, we want only the values saved as part of the serialized state of the object to be reassigned.
+
+If the superclass is not `Serializable`, the instance variables in the subclass (which implements `Serializable`) will
+be serialized and deserialized correctly, but the **inherited variables** from the non-serializable superclass will come
+back with their default/initially assigned values rather than the values they had at the time of serialization.
+
+Thus, if a subclass implements `Serializable` but the super class does NOT, then any instance variables INHERITED from
+that superclass will be reset to the values they were given during the original construction of the object. This is
+because the non-serializable class constructor WILL run.
+
+In fact, every constructor ABOVE the first non-serializable class constructor will also run in the inheritance tree.
+
+---
+

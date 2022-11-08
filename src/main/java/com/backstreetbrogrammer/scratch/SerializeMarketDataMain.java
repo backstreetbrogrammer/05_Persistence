@@ -1,4 +1,4 @@
-package chapter01;
+package com.backstreetbrogrammer.scratch;
 
 import java.io.*;
 import java.util.List;

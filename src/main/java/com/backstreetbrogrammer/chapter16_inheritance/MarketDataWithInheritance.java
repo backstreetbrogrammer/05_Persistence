@@ -1,12 +1,9 @@
-package chapter01;
+package com.backstreetbrogrammer.chapter16_inheritance;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-public class MarketData extends Identifiable implements Serializable {
-    private static final long serialVersionUID = 47L;
+public class MarketDataWithInheritance extends Identifiable implements Serializable {
+    private static final long serialVersionUID = -6702031853620849424L;
 
     private String securityId;
     private long time;
@@ -15,10 +12,11 @@ public class MarketData extends Identifiable implements Serializable {
     private double low;
     private double close;
     private double last;
+    private boolean isLevelOne;
 
-    private transient MarketDataProvider marketDataProvider;
+    private MarketDataProviderInheritance marketDataProvider;
 
-    public MarketData() {
+    public MarketDataWithInheritance() {
     }
 
     public String getSecurityId() {
@@ -77,17 +75,25 @@ public class MarketData extends Identifiable implements Serializable {
         this.last = last;
     }
 
-    public MarketDataProvider getMarketDataProvider() {
+    public boolean isLevelOne() {
+        return isLevelOne;
+    }
+
+    public void setLevelOne(final boolean levelOne) {
+        isLevelOne = levelOne;
+    }
+
+    public MarketDataProviderInheritance getMarketDataProvider() {
         return marketDataProvider;
     }
 
-    public void setMarketDataProvider(final MarketDataProvider marketDataProvider) {
+    public void setMarketDataProvider(final MarketDataProviderInheritance marketDataProvider) {
         this.marketDataProvider = marketDataProvider;
     }
 
     @Override
     public String toString() {
-        return "MarketData{" +
+        return "MarketDataWithInheritance{" +
                 "securityId='" + securityId + '\'' +
                 ", time=" + time +
                 ", open=" + open +
@@ -95,26 +101,9 @@ public class MarketData extends Identifiable implements Serializable {
                 ", low=" + low +
                 ", close=" + close +
                 ", last=" + last +
+                ", isLevelOne=" + isLevelOne +
                 ", marketDataProvider=" + marketDataProvider +
                 ", id=" + getId() +
                 '}';
-    }
-
-    private void writeObject(final ObjectOutputStream oos) {
-        try {
-            oos.defaultWriteObject();
-            oos.writeUTF(marketDataProvider.getName());
-        } catch (final IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void readObject(final ObjectInputStream ois) {
-        try {
-            ois.defaultReadObject();
-            marketDataProvider = new MarketDataProvider(ois.readUTF());
-        } catch (final IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
     }
 }
