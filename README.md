@@ -97,7 +97,7 @@ can be serialized by just implementing `Serializable` interface and using these 
 ### Chapter 02 - Serialization with memory buffer
 
 The first example is using memory as buffer to where the serialized streams of bytes will be written to and then
-retrieved from using desrialization.
+retrieved from using deserialization.
 
 - Java Object => Serialize to byte array => Memory
 - Memory => Deserialize from byte array => Java Object
@@ -112,6 +112,10 @@ read method.
 
 **Drawback** using memory buffer is that once the JVM shuts down - the serialized data in memory is erased and can not
 be used after application restart.
+
+#### Youtube
+
+- [08 - Java Serialization with memory buffer - Theory](https://youtu.be/UgUuutfs828)
 
 ---
 
@@ -454,5 +458,38 @@ serialized.
 Similarly, `readResolve()` method is used during deserialization process to allow the developer to replace the
 deserialized object by another one of our choice. The `readResolve()` method is run after `readObject()` method is
 called.
+
+---
+
+### Chapter 20 - Singleton pattern and readResolve()
+
+In software engineering, the **Singleton** pattern is a software design pattern that restricts the instantiation of a
+class to a singular instance. The pattern is useful when exactly one object is needed to coordinate actions across a
+system.
+
+More specifically, the singleton pattern allows objects to:
+
+- Ensure they only have one instance
+- Provide easy access to that instance
+- Control their instantiation by hiding the constructors of a class
+
+As we know that deserialization process will always contain the “copy” of the original object => thus it will break the
+singleton design pattern as only ONE and SAME instance has to be there in a current JVM run.
+
+In other words, any class would no longer be a singleton if it implements `Serializable` interface. It doesn’t matter
+whether the class uses the **default serialized form** or a **custom serialized form**, nor does it matter whether the
+class provides an explicit `readObject()` method.
+
+Any `readObject()` method, whether explicit or default, returns a newly created instance, which will not be the same
+instance that was created at class initialization time.
+
+To solve this issue, the `readResolve()` method allows to substitute another instance for the one created
+by `readObject()`.
+
+If the class of an object being deserialized defines a `readResolve()` method with the proper declaration, this method
+is invoked on the newly created object after it is deserialized.
+
+The object reference returned by this method is then returned in place of the newly created object. No reference to the
+newly created object is retained, so it immediately becomes eligible for garbage collection.
 
 ---
