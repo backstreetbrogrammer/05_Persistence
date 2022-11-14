@@ -45,6 +45,15 @@ Serialization is mainly used in Hibernate, RMI, JPA and JMS technologies.
 22. Serialization Proxy Pattern
 23. Exercises and Solutions
 
+### Youtube
+
+[Java Serialization Playlist](https://youtube.com/playlist?list=PLQDzPczdXrTjGLkI8kd2d0bfNHx0v7dTy)
+
+- [01 - Java Serialization Tutorial Series](https://youtu.be/F5POMzyLf7c)
+- [02 - Java Serialization - Table Of Contents](https://youtu.be/W2ZWKwYsNvM)
+- [03 - Java Serialization - Java, Maven and IntelliJ installations](https://youtu.be/baSkl5eIrNo)
+- [04 - Java Serialization - Maven Project Setup on IntelliJ](https://youtu.be/eXezwNStAfU)
+
 ---
 
 ### Chapter 01 - Introduction
@@ -76,6 +85,12 @@ can be serialized by just implementing `Serializable` interface and using these 
 
 - `ObjectOutputStream.writeObject()` => serialize and write
 - `ObjectInputStream.readObject()` => read and deserialize
+
+#### Youtube
+
+- [05 - Java Serialization - Introduction - Theory](https://youtu.be/Zas-PqxXNE8)
+- [06 - Java Serialization - Introduction - Code Demo 1](https://youtu.be/KGriEzFUGWA)
+- [07 - Java Serialization - Introduction - Code Demo 2](https://youtu.be/UylAJ6EOyFg)
 
 ---
 
@@ -430,3 +445,14 @@ call to `validateObject()` will terminate the validation process, and the `Inval
 
 ---
 
+### Chapter 19 - Using writeReplace() and readResolve()
+
+The `writeReplace()` method allows the developer to provide a replacement object that will be serialized instead of the
+original one. The `writeReplace()` method is run before `writeObject()` and allows us to replace the object that gets
+serialized.
+
+Similarly, `readResolve()` method is used during deserialization process to allow the developer to replace the
+deserialized object by another one of our choice. The `readResolve()` method is run after `readObject()` method is
+called.
+
+---
