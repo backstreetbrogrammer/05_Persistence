@@ -116,6 +116,9 @@ be used after application restart.
 #### Youtube
 
 - [08 - Java Serialization with memory buffer - Theory](https://youtu.be/UgUuutfs828)
+- [09 - Java Serialization with memory buffer - Code Demo 1](https://youtu.be/s0LnxU1zL5A)
+- [10 - Java Serialization with memory buffer - Code Demo 2](https://youtu.be/CN4vcPtP9Vw)
+- [11 - Java Serialization with memory buffer - Code Demo 3](https://youtu.be/cdRxfbdJ_ow)
 
 ---
 
