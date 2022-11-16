@@ -143,6 +143,10 @@ stream for writing data to a File and is meant for writing streams of raw bytes 
 `FileInputStream` class is used to read the stream of bytes from the file. This class obtains input bytes from a file in
 a file system and is meant for reading streams of raw bytes such as image data.
 
+#### Youtube
+
+- [12 - Java Serialization with file - Theory](https://youtu.be/v3nMZmeRT4c)
+
 ---
 
 ### Chapter 04 - Serialization versioning
