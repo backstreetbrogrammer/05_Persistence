@@ -501,3 +501,46 @@ The object reference returned by this method is then returned in place of the ne
 newly created object is retained, so it immediately becomes eligible for garbage collection.
 
 ---
+
+### Chapter 21 - Using ObjectInputFilter
+
+Deserialization of untrusted data can lead to vulnerabilities that allow an attacker to execute arbitrary code.
+
+The `readObject()` method in `ObjectInputStream` class will construct any sort of serializable object that can be found
+on the classpath before passing it back to the caller.
+
+Thus, if a rogue process sent us very large arrays or instances of classes that could be considered dangerous, we could
+perhaps check the generated instances using the `ObjectInputValidation` interface, but at that point the instance had
+already been constructed. We might already have run out of memory on the server or been hacked in some way.
+
+It also means that if an attacker is able to put malicious data into the serialized object, this will cause serious
+security issues to the system.
+
+To prevent Java deserialization vulnerabilities, an application has to restrict a set of classes which may be
+deserialized.
+
+To do so, we can use serialization filters via `ObjectInputFilter` interface introduced in **Java 9**.
+
+It has a method `checkInput(FilterInfo)`, and the `FilterInfo` provides the following filters choices to check:
+
+- `serialClass()`: the class of an object being deserialized
+- `arrayLength()`: the number of array elements when deserializing an array of the class
+- `depth()`: the depth of the object graph at that point
+- `references()`: the current number of object references
+- `streamBytes()`: the current number of bytes consumed
+
+The method `checkInput(FilterInfo)` returns either `Status.UNDECIDED`, `Status.ALLOWED`, or `Status.REJECTED`.
+
+We should use `ALLOWED` if we want the object to be **accepted**, or we would mark them as `REJECTED` if we want this to
+be **rejected**.
+
+`UNDECIDED` means we allow later filters to override but currently, it is **undecided**, not allowed and not rejected.
+
+We can implement serialization filters in 2 ways:
+
+- Custom filters by implementing `checkInput(FilterInfo)` method of `ObjectInputFilter` interface
+- **Pattern-based filters** which can accept or reject specific classes, packages, or modules => A class that matches a
+  pattern that is preceded by `!` is rejected. A class that matches a pattern without `!` is accepted.
+
+---
+
