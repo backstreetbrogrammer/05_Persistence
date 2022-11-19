@@ -544,3 +544,47 @@ We can implement serialization filters in 2 ways:
 
 ---
 
+### Chapter 22 - Serialization Proxy Pattern
+
+As we have seen that deserialization of untrusted data can lead to vulnerabilities that allow an attacker to execute
+arbitrary code. The decision to implement `Serializable` increases the likelihood of bugs and security problems as it
+allows instances to be created without the usage of `new` operator or using constructors.
+
+Also, the serialized data may contain sensitive information if not protected properly allowing the hackers to peep in
+using this security hole.
+
+This is where **Serialization Proxy Pattern** comes in which greatly reduces all these risks.
+
+Steps to design the pattern:
+
+- In the serializable Java POJO class, define a **private static nested class** with all the fields same as enclosing
+  class and marked as `final`
+- This **inner static class** should also implement `Serializable` interface and is called the **serialization proxy**
+  of the enclosing class
+- This **inner static class** should only have a single constructor for which the parameter type is the enclosing class
+- Implement the `writeReplace()` method in enclosing class which returns an instance of inner serialization proxy class
+  using the above single constructor
+- Implement the `readObject()` method in enclosing class which should throw `InvalidObjectException`
+- Finally, provide a `readResolve()` method in the inner serialization proxy class that returns the equivalent instance
+  of the enclosing class
+
+**Serialization Proxy Pattern** helps protect the original enclosing class instance to serialize using `writeReplace()`
+method and the attacker can not get the same instance as we have implemented the `readObject()` method to throw
+Exception.
+
+Under the hood, the private inner serialization proxy class is taking care of serializing and deserializing the logical
+equivalent instance of the enclosing class in a **secured** way.
+
+Serialization proxy pattern has two limitations:
+
+- It is not compatible with classes that are extendable by their users or the classes which can be subclassed. Better to
+  chose it for `final` classes.
+- It is not compatible with some classes whose object graphs contain _circularities_: if we attempt to invoke a method
+  on such an object from within its serialization proxy’s `readResolve()` method, we’ll get a `ClassCastException`
+  because we don’t have the object yet, only its serialization proxy.
+
+Thus, consider the serialization proxy pattern whenever we have to write a `readObject()` or `writeObject()` method on a
+class that is not extendable by its clients.
+
+---
+

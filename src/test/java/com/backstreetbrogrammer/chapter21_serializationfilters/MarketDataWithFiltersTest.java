@@ -85,7 +85,7 @@ public class MarketDataWithFiltersTest {
 
     @Test
     @DisplayName("Test basic deserialization for Java POJO based on serial class - REJECTED")
-    void testDeserializeBasedOnSerialClassRejected() throws IOException, ClassNotFoundException {
+    void testDeserializeBasedOnSerialClassRejected() throws IOException {
         try (final var ois = new ObjectInputStream(
                 new BufferedInputStream(
                         new FileInputStream(serFile)))) {
