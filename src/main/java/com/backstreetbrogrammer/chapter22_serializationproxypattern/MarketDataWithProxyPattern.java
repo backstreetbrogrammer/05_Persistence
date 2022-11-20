@@ -99,10 +99,12 @@ public class MarketDataWithProxyPattern implements Serializable {
     }
 
     private Object writeReplace() {
+        System.out.println("Inside enclosing class writeReplace()");
         return new MarketDataProxy(this);
     }
 
     private void readObject(final ObjectInputStream ois) throws InvalidObjectException {
+        System.out.println("Inside enclosing class readObject()");
         throw new InvalidObjectException("Proxy required");
     }
 
@@ -130,6 +132,7 @@ public class MarketDataWithProxyPattern implements Serializable {
         }
 
         private Object readResolve() {
+            System.out.println("Inside proxy readResolve()");
             final var marketData = new MarketDataWithProxyPattern();
             marketData.securityId = securityId;
             marketData.time = time;
