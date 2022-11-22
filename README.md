@@ -602,15 +602,15 @@ class that is not extendable by its clients.
 import java.io.*;
 
 public class Exercise1 {
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         final var object1 = new OtherClassExercise1();
         try {
-            final var oos = new ObjectOutputStream(new FileOutputStream("serFile"));
+            final var oos = new ObjectOutputStream(new FileOutputStream("serFile1"));
             oos.writeObject(object1);
             oos.close();
             System.out.print(++object1.numStatic + " ");
 
-            final var ois = new ObjectInputStream(new FileInputStream("serFile"));
+            final var ois = new ObjectInputStream(new FileInputStream("serFile1"));
             final var fromSerialize = (OtherClassExercise1) ois.readObject();
             ois.close();
             System.out.println(fromSerialize.numTransient + " " + fromSerialize.numStatic);
@@ -637,7 +637,125 @@ class OtherClassExercise1 implements Serializable {
    G. To change the standard deserialization process, we should implement the readObject() in OtherClassExercise1
    H. To change the standard deserialization process, we should implement the defaultReadObject() in OtherClassExercise1
 
- */
+*/
 ```
 
+---
 
+#### Exercise 2
+
+```java
+import java.io.*;
+
+public class Exercise2 implements Serializable {
+    private static final long serialVersionUID = 47L;
+
+    private String favoriteLanguage;
+    private int yearsOfExperience;
+
+    public void setFavoriteLanguage(final String favoriteLanguage) {
+        this.favoriteLanguage = favoriteLanguage;
+    }
+
+    public void setYearsOfExperience(final int yearsOfExperience) {
+        this.yearsOfExperience = yearsOfExperience;
+    }
+
+    private static final ObjectStreamField[] serialPersistentFields = {
+            new ObjectStreamField("favoriteLanguage", String.class)
+    };
+
+    private void writeObject(final ObjectOutputStream oos) throws IOException {
+        final ObjectOutputStream.PutField fields = oos.putFields();
+        fields.put("favoriteLanguage", favoriteLanguage);
+        fields.put("yearsOfExperience", yearsOfExperience);
+        oos.writeFields();
+    }
+
+    private void readObject(final ObjectInputStream is) throws IOException, ClassNotFoundException {
+        final ObjectInputStream.GetField fields = is.readFields();
+        favoriteLanguage = (String) fields.get("favoriteLanguage", null);
+        yearsOfExperience = fields.get("yearsOfExperience", 0);
+    }
+
+    public static void main(final String[] args) throws IOException, ClassNotFoundException {
+        final var object1 = new Exercise2();
+        object1.setFavoriteLanguage("Java");
+        object1.setYearsOfExperience(10);
+
+        try (final var oos = new ObjectOutputStream(
+                new BufferedOutputStream(
+                        new FileOutputStream("serFile2")))) {
+            oos.writeObject(object1);
+        }
+
+        try (final var ois = new ObjectInputStream(
+                new BufferedInputStream(
+                        new FileInputStream("serFile2")))) {
+            final var fromSerialize = (Exercise2) ois.readObject();
+            System.out.printf("%s %d%n", fromSerialize.favoriteLanguage, fromSerialize.yearsOfExperience);
+        }
+    }
+}
+
+/*
+   Which of the following options are TRUE ? (Choose all that apply)
+
+   A. Compilation fails
+   B. Exception thrown at runtime
+   C. Output is = Java 0
+   D. Output is = Java 10
+   E. Output is = null 0
+   F. Output is = null 10
+
+*/
+```
+
+---
+
+#### Exercise 3
+
+```java
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+public class Exercise3 implements Serializable {
+    private static final long serialVersionUID = 63L;
+
+    private OtherClass3 otherObject = new OtherClass3();
+
+    public static void main(final String[] args) {
+        final var exercise3 = new Exercise3();
+        exercise3.storeIt(exercise3);
+    }
+
+    private void storeIt(final Exercise3 exercise3) {
+        try {
+            final var oos = new ObjectOutputStream(new FileOutputStream("serFile3"));
+            oos.writeObject(exercise3);
+            oos.close();
+            System.out.println("stored");
+        } catch (final Exception e) {
+            System.out.println("exception");
+        }
+    }
+
+}
+
+class OtherClass3 {
+}
+
+/*
+   What is the result ? (Choose all that apply)
+
+   A. exception
+   B. stored
+   C. Compilation fails
+   D. Exactly one object is serialized
+   E. Exactly two objects are serialized
+
+*/
+```
+
+---

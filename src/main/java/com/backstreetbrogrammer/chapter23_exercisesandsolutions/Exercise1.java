@@ -3,15 +3,15 @@ package com.backstreetbrogrammer.chapter23_exercisesandsolutions;
 import java.io.*;
 
 public class Exercise1 {
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         final var object1 = new OtherClassExercise1();
         try {
-            final var oos = new ObjectOutputStream(new FileOutputStream("serFile"));
+            final var oos = new ObjectOutputStream(new FileOutputStream("serFile1"));
             oos.writeObject(object1);
             oos.close();
             System.out.print(++object1.numStatic + " ");
 
-            final var ois = new ObjectInputStream(new FileInputStream("serFile"));
+            final var ois = new ObjectInputStream(new FileInputStream("serFile1"));
             final var fromSerialize = (OtherClassExercise1) ois.readObject();
             ois.close();
             System.out.println(fromSerialize.numTransient + " " + fromSerialize.numStatic);
@@ -38,4 +38,4 @@ class OtherClassExercise1 implements Serializable {
    G. To change the standard deserialization process, we should implement the readObject() in OtherClassExercise1
    H. To change the standard deserialization process, we should implement the defaultReadObject() in OtherClassExercise1
 
- */
+*/
