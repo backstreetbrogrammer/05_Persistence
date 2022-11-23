@@ -195,6 +195,10 @@ Suppose we have a class which has array of primitives or array of Objects as its
 In this scenario, we need to ensure that every element in the array is `Serializable`, otherwise the serialization will
 fail.
 
+#### Youtube
+
+- [17 - Java Serialization with array field members - Code Demo](https://youtu.be/nyAyOiB3QrU)
+
 ---
 
 ### Chapter 06 - Serialization with Java Objects as array
@@ -844,3 +848,40 @@ class OtherClass5 {
 
 ---
 
+#### Exercise 6
+
+```java
+import java.io.Serializable;
+
+public class Exercise6 {
+}
+
+class Machine {
+}
+
+class Keyboard {
+}
+
+class Computer extends Machine implements Serializable {
+}
+
+class Dell extends Computer {
+}
+
+class Lenovo extends Computer {
+    Keyboard keyboard = new Keyboard();
+}
+
+/*
+   Which instances of class(es) can be serialized ? (Choose all that apply)
+
+   A. Computer
+   B. Dell
+   C. Lenovo
+   D. Keyboard
+   E. Machine
+
+*/
+```
+
+---

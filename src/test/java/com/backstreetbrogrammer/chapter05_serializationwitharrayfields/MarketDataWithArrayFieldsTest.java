@@ -70,6 +70,9 @@ public class MarketDataWithArrayFieldsTest {
             assertTrue(fromSerialize.isLevelOne());
 
             final var fromSerializeMdProviders = fromSerialize.getMdProviders();
+            assertNotNull(fromSerializeMdProviders);
+            assertEquals(3, fromSerializeMdProviders.length);
+            
             for (int i = 0; i < fromSerializeMdProviders.length; i++) {
                 assertEquals(mdProviders[i], fromSerializeMdProviders[i]);
             }
