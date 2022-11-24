@@ -211,6 +211,11 @@ We need to ensure that every element in the array is `Serializable`, otherwise t
 Similarly, while deserialization, the whole array object can be read by calling `readObject()` method from
 `ObjectInputStream` class.
 
+#### Youtube
+
+- [18 - Java Serialization with Java Objects as array - Code Demo 1](https://youtu.be/z5DBex6obTk)
+- [19 - Java Serialization with Java Objects as array - Code Demo 2](https://youtu.be/Nm78tlCM7oE)
+
 ---
 
 ### Chapter 07 - Serialization with collection field members

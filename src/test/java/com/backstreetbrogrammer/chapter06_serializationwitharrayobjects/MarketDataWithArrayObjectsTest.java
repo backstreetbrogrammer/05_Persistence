@@ -55,7 +55,7 @@ public class MarketDataWithArrayObjectsTest {
                         new FileOutputStream(serFile)))) {
             System.out.println("Before Serialization: ");
             Arrays.stream(marketDataObjects)
-                    .forEach(System.out::println);
+                  .forEach(System.out::println);
             oos.writeObject(marketDataObjects);
         }
     }
@@ -72,6 +72,10 @@ public class MarketDataWithArrayObjectsTest {
 
             final var marketDataObjects = (MarketDataWithArrayObjects[]) fromSerialize;
             assertEquals(2, marketDataObjects.length);
+
+            System.out.println("After Serialization: ");
+            Arrays.stream(marketDataObjects)
+                  .forEach(System.out::println);
 
             final var marketData1 = marketDataObjects[0];
             assertNotNull(marketData1);
