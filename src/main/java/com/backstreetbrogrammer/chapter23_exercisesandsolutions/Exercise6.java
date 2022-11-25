@@ -18,7 +18,7 @@ class Dell extends Computer {
 }
 
 class Lenovo extends Computer {
-    Keyboard keyboard = new Keyboard();
+    final Keyboard keyboard = new Keyboard();
 }
 
 /*

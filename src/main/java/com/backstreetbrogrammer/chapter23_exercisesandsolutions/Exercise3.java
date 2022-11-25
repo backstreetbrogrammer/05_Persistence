@@ -7,7 +7,7 @@ import java.io.Serializable;
 public class Exercise3 implements Serializable {
     private static final long serialVersionUID = 63L;
 
-    private OtherClass3 otherObject = new OtherClass3();
+    private final OtherClass3 otherObject = new OtherClass3();
 
     public static void main(final String[] args) {
         final var exercise3 = new Exercise3();
