@@ -71,6 +71,9 @@ public class MarketDataWithListFieldsTest {
             assertTrue(fromSerialize.isLevelOne());
 
             final var fromSerializeMdProviders = fromSerialize.getMdProviders();
+            assertNotNull(fromSerializeMdProviders);
+            assertEquals(3, fromSerializeMdProviders.size());
+            
             for (int i = 0; i < fromSerializeMdProviders.size(); i++) {
                 assertEquals(mdProviders.get(i), fromSerializeMdProviders.get(i));
             }
