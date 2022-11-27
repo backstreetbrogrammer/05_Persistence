@@ -39,7 +39,7 @@ public class Exercise12 implements Serializable {
                 new FileOutputStream("serFile12"))) {
             oos.writeObject(exercise12);
         }
-        Exercise12 fromSerialize;
+        final Exercise12 fromSerialize;
         try (final var ois = new ObjectInputStream(
                 new FileInputStream("serFile12"))) {
             fromSerialize = (Exercise12) ois.readObject();

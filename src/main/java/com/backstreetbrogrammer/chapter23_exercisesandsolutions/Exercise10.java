@@ -13,7 +13,7 @@ public class Exercise10 extends OtherClass10 implements Serializable {
         name = "JavaScript";
     }
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+    public static void main(final String[] args) throws IOException, ClassNotFoundException {
         try (final var oos = new ObjectOutputStream(
                 new FileOutputStream("serFile10"))) {
             final var exercise10 = new Exercise10();
