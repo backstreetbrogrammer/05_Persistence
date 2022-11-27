@@ -244,6 +244,10 @@ We need to ensure that every element in the collection is `Serializable`, otherw
 Similarly, while deserialization, the whole collection object can be read by calling `readObject()` method from
 `ObjectInputStream` class.
 
+#### Youtube
+
+- [21 - Java Serialization with Java Objects as Collection - Code Demo](https://youtu.be/hJ_Gf9w5Agg)
+
 ---
 
 ### Chapter 09 - Serialization with Enum Constants
