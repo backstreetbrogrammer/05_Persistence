@@ -278,6 +278,10 @@ Few more points to take note of:
   `readObjectNoData()`, `writeReplace()` and `readResolve()` methods defined by enum types are ignored during
   serialization and deserialization
 
+#### Youtube
+
+- [22 - Java Serialization with Enum Constants - Code Demo 1](https://youtu.be/EChfTzyhp6c)
+
 ---
 
 ### Chapter 10 - Serialization with static fields
