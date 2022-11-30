@@ -281,6 +281,7 @@ Few more points to take note of:
 #### Youtube
 
 - [22 - Java Serialization with Enum Constants - Code Demo 1](https://youtu.be/EChfTzyhp6c)
+- [23 - Java Serialization with Enum Constants - Code Demo 2](https://youtu.be/cs94RBaU654)
 
 ---
 
@@ -1300,5 +1301,23 @@ public class Exercise13 implements Serializable {
 
 */
 ```
+
+---
+
+#### Solutions
+
+1. **D**
+2. **B**
+3. **A**
+4. **B, C, D**
+5. **E**
+6. **A, B**
+7. **G**
+8. **B**
+9. **D**
+10. **D**
+11. **D** or (**A and C**)
+12. **B**
+13. **C**
 
 ---
