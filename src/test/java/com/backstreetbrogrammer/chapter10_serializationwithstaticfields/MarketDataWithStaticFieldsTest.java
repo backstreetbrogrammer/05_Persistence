@@ -24,8 +24,8 @@ public class MarketDataWithStaticFieldsTest {
     }
 
     @Test
-    @DisplayName("Test basic serialization for Java POJO with static fields")
-    void testSerialize() throws IOException {
+    @DisplayName("Test basic serialization and deserialization for Java POJO with static fields")
+    void testSerializeAndDeserialize() throws IOException, ClassNotFoundException {
         final var marketData = new MarketDataWithStaticFields();
         marketData.setSecurityId("AAPL");
         marketData.setTime(10000L);
@@ -46,11 +46,10 @@ public class MarketDataWithStaticFieldsTest {
             System.out.println(marketData);
             oos.writeObject(marketData);
         }
-    }
 
-    @Test
-    @DisplayName("Test basic deserialization for Java POJO with static fields")
-    void testDeserialize() throws IOException, ClassNotFoundException {
+        marketData.setMdProvider("BBG");
+
+        // deserialize and read
         try (final var ois = new ObjectInputStream(
                 new BufferedInputStream(
                         new FileInputStream(serFile)))) {
@@ -69,10 +68,10 @@ public class MarketDataWithStaticFieldsTest {
             assertEquals(161.9D, fromSerialize.getLast());
             assertTrue(fromSerialize.isLevelOne());
 
-            assertEquals("REUTERS", fromSerialize.getMdProvider());
-
-            MarketDataWithStaticFields.setMdProvider("BBG");
             assertEquals("BBG", fromSerialize.getMdProvider());
+
+            marketData.setMdProvider("INET");
+            assertEquals("INET", fromSerialize.getMdProvider());
         }
     }
 }
