@@ -298,7 +298,11 @@ of which were saved when the value of a static variable in the class was differe
 Now, if static variables were serializable, which of the 3 instances would win ? OR, Which instance’s static value would
 be used to replace the one currently in the one and only class that’s currently loaded ?
 
-=> this is a problem… that’s why, static fields are never part of serialization / deserialization process.
+=> This is a problem… that’s why, static fields are never part of serialization / deserialization process.
+
+#### Youtube
+
+- [24 - Java Serialization with static fields - Code Demo](https://youtu.be/gqLPbcK91ko)
 
 ---
 
