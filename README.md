@@ -319,6 +319,10 @@ Just remember to implement the `Serializable` interface for all the objects in t
 get
 `NotSerializableException`.
 
+#### Youtube
+
+- [25 - Java Serialization with Object graphs - Code Demo](https://youtu.be/qbu7mOHwIQM)
+
 ---
 
 ### Chapter 12 - Using transient keyword
