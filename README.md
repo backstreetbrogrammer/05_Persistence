@@ -343,6 +343,10 @@ these fields are NOT serialized just like `static` fields.
 What happens to data marked `transient` on deserialization? It reverts to its default Java values, such as `0.0D` for
 `double`, `false` for `boolean` or `null` for an object.
 
+#### Youtube
+
+- [26 - Java Serialization using transient keyword - Theory](https://youtu.be/6BAgEmzTIgU)
+
 ---
 
 ### Chapter 13 - Using writeObject() and readObject()
