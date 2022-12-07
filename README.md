@@ -346,6 +346,7 @@ What happens to data marked `transient` on deserialization? It reverts to its de
 #### Youtube
 
 - [26 - Java Serialization using transient keyword - Theory](https://youtu.be/6BAgEmzTIgU)
+- [27 - Java Serialization using transient keyword - Code Demo](https://youtu.be/syWzyLCWPzk)
 
 ---
 
