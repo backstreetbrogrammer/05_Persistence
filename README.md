@@ -386,6 +386,7 @@ respectively.
 #### Youtube
 
 - [28 - Java Serialization using writeObject() and readObject() - Theory](https://youtu.be/WWoL6EDotyw)
+- [29 - Java Serialization using writeObject() and readObject() - Code Demo 1](https://youtu.be/lBPkDTUH1Z0)
 
 ---
 
