@@ -74,6 +74,7 @@ public class MarketDataWithWriteObjectReadObjectTest {
             final var marketDataProvider1 = fromSerialize.getMarketDataProvider();
             assertNotNull(marketDataProvider1);
             assertEquals("INET", marketDataProvider1.getName());
+            assertEquals(marketDataProvider, marketDataProvider1);
         }
     }
 

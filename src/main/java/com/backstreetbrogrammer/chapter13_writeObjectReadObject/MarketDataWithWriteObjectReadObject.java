@@ -110,20 +110,23 @@ public class MarketDataWithWriteObjectReadObject implements Serializable {
                 '}';
     }
 
-    private void writeObject(final ObjectOutputStream os) throws IOException {
+    private void writeObject(final ObjectOutputStream os) {
         try {
+            System.out.println("inside writeObject()");
             os.defaultWriteObject();
             os.writeUTF(marketDataProvider.getName());
-        } catch (final Exception e) {
+        } catch (final IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void readObject(final ObjectInputStream is) throws IOException, ClassNotFoundException {
+    private void readObject(final ObjectInputStream is) {
         try {
+            System.out.println("inside readObject()");
             is.defaultReadObject();
-            marketDataProvider = new MarketDataProviderWriteObjectReadObject(is.readUTF());
-        } catch (final Exception e) {
+            marketDataProvider
+                    = new MarketDataProviderWriteObjectReadObject(is.readUTF());
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }

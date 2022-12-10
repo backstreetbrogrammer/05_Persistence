@@ -372,7 +372,7 @@ private void writeObject(ObjectOutputStream stream) {
 2) For deserialization:
 
 ````
-private void readObject(ObjectlnputStream stream) { 
+private void readObject(ObjectInputStream stream) { 
    // code for restoring the same object as it was saved although if its transient 
 }
 ````
@@ -380,7 +380,12 @@ private void readObject(ObjectlnputStream stream) {
 By implementing these 2 methods, we can customize or control the default Java serialization process.
 
 Also, we can call the methods like `ObjectOutputStream.defaultWriteObject()` and `ObjectInputStream.defaultReadObject()`
-to invoke the default Java serialization process inside `writeObject()` and `readObject()` methods respectively.
+to invoke the default Java serialization and deserialization process inside `writeObject()` and `readObject()` methods
+respectively.
+
+#### Youtube
+
+- [28 - Java Serialization using writeObject() and readObject() - Theory](https://youtu.be/WWoL6EDotyw)
 
 ---
 
