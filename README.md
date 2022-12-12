@@ -438,18 +438,18 @@ serialization?
 
 When an object is constructed using new (as opposed to being deserialized), following things happen in this sequence:
 
-1.All instance variables are assigned **default** values - like `int` as `0`, `double` as `0D`, `boolean` as `false`
-, `String` as `null`, etc.
+1. All instance variables are assigned **default** values - like `int` as `0`, `double` as `0D`, `boolean` as `false`
+   , `String` as `null`, etc.
 
-2.The **constructor** is invoked, which immediately invokes the superclass constructor OR another overloaded
-constructor, until one of the overloaded constructors invokes the superclass constructor.
+2. The **constructor** is invoked, which immediately invokes the superclass constructor OR another overloaded
+   constructor, until one of the overloaded constructors invokes the superclass constructor.
 
-3.All **superclass constructors** complete.
+3. All **superclass constructors** complete.
 
-4.Instance variables that are initialized as part of their declaration are assigned their initial value overriding the
-default values they’re given prior to the superclass constructors completing.
+4. Instance variables that are initialized as part of their declaration are assigned their initial value overriding the
+   default values they’re given prior to the superclass constructors completing.
 
-5.The constructor completes.
+5. The constructor completes.
 
 BUT, these things do NOT happen when an object is **deserialized**.
 
