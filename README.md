@@ -403,6 +403,10 @@ process. This is also called as **whitelisting**.
 Ideally **whitelisting** should be preferred over **blacklisting** as we have full control on which fields to serialize
 or not.
 
+#### Youtube
+
+- [31 - Java Serialization using ObjectStreamField - Theory](https://youtu.be/yc4uTPSReFc)
+
 ---
 
 ### Chapter 15 - Protecting sensitive information
