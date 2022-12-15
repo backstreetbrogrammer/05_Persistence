@@ -423,7 +423,12 @@ in the stream and from being restored during deserialization. Since writing and 
 superseded outside the class, the `transient` fields of the class are safe.
 
 However, if we really want to serialize secured or confidential fields, we should use **encryption** and **decryption**
-of the field.
+of the field. We will use Message Digest **SHA-1** **AES** algorithm for "encryption" and "decryption" of the secured
+fields.
+
+#### Youtube
+
+- [34 - Java Serialization - Protecting sensitive information - Code Demo 1](https://youtu.be/tPWyMgbjuTw)
 
 ---
 
