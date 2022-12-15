@@ -407,6 +407,7 @@ or not.
 
 - [31 - Java Serialization using ObjectStreamField - Theory](https://youtu.be/yc4uTPSReFc)
 - [32 - Java Serialization using ObjectStreamField - Code Demo 1](https://youtu.be/deuhH8nqwaY)
+- [33 - Java Serialization using ObjectStreamField - Code Demo 2](https://youtu.be/P6fPT1v43IQ)
 
 ---
 
