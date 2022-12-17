@@ -430,6 +430,7 @@ fields.
 
 - [34 - Java Serialization - Protecting sensitive information - Code Demo 1](https://youtu.be/tPWyMgbjuTw)
 - [35 - Java Serialization - Protecting sensitive information using SHA1 - Code Demo 2](https://youtu.be/y_2To9_ads0)
+- [36 - Java Serialization - Protecting sensitive information using SHA1 - Code Demo 3](https://youtu.be/05Lx0In1YvQ)
 
 ---
 

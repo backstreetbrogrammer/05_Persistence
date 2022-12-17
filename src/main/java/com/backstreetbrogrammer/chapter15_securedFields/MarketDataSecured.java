@@ -123,7 +123,7 @@ public class MarketDataSecured implements Serializable {
         final MessageDigest sha;
         try {
             byte[] key = SECRET_KEY.getBytes(StandardCharsets.UTF_8);
-            sha = MessageDigest.getInstance("SHA-1");
+            sha = MessageDigest.getInstance("SHA-512");
             key = sha.digest(key);
             key = Arrays.copyOf(key, 16);
             secretKey = new SecretKeySpec(key, ALGORITHM);
