@@ -17,6 +17,7 @@ public class MarketDataWithInheritance extends Identifiable implements Serializa
     private MarketDataProviderInheritance marketDataProvider;
 
     public MarketDataWithInheritance() {
+        System.out.println("Inside MarketDataWithInheritance() constructor");
     }
 
     public String getSecurityId() {

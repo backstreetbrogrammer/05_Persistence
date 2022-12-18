@@ -4,6 +4,10 @@ public class Identifiable {
 
     private String id;
 
+    public Identifiable() {
+        System.out.println("Inside Identifiable() constructor");
+    }
+
     public String getId() {
         return id;
     }
