@@ -479,6 +479,10 @@ because the non-serializable class constructor WILL run.
 
 In fact, every constructor ABOVE the first non-serializable class constructor will also run in the inheritance tree.
 
+#### Youtube
+
+- [38 - How Inheritance Affects Java Serialization - Theory](https://youtu.be/jf6CuLqmSvQ)
+
 ---
 
 ### Chapter 17 - Using Externalizable
