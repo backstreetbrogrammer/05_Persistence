@@ -482,6 +482,7 @@ In fact, every constructor ABOVE the first non-serializable class constructor wi
 #### Youtube
 
 - [38 - How Inheritance Affects Java Serialization - Theory](https://youtu.be/jf6CuLqmSvQ)
+- [39 - How Inheritance Affects Java Serialization - Code Demo 1](https://youtu.be/3Tr6MDfMykg)
 
 ---
 
