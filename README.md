@@ -483,6 +483,7 @@ In fact, every constructor ABOVE the first non-serializable class constructor wi
 
 - [38 - How Inheritance Affects Java Serialization - Theory](https://youtu.be/jf6CuLqmSvQ)
 - [39 - How Inheritance Affects Java Serialization - Code Demo 1](https://youtu.be/3Tr6MDfMykg)
+- [40 - How Inheritance Affects Java Serialization - Unit Tests Code Demo](https://youtu.be/cEuYppBx2Rk)
 
 ---
 
@@ -497,7 +498,7 @@ We need to tell what to serialize using `writeExternal()` method and what to des
 implementation of `writeExternal()` and `readExternal()`, methods `writeObject()` and `readObject()` becomes redundant
 and do not get called.
 
-We can even serialize/deserialize static and `transient` variables, although it will be a bad practice to do so.
+We can even serialize/deserialize `static` and `transient` variables, although it will be a bad practice to do so.
 
 When an `Externalizable` object is reconstructed, the object is created using public no-arg constructor before the
 `readExternal()` method is called.
