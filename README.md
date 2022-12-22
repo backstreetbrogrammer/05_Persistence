@@ -506,6 +506,8 @@ However, if we really want to serialize secured or confidential fields, we shoul
 of the field. We will use Message Digest **SHA-1** **AES** algorithm for "encryption" and "decryption" of the secured
 fields.
 
+**ERRATA**: I have changed the hash function from "SHA-1" to "SHA-512" as "SHA-1" is not secured and not used anymore.
+
 #### Youtube
 
 - [34 - Java Serialization - Protecting sensitive information - Code Demo 1](https://youtu.be/tPWyMgbjuTw)
