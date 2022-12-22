@@ -45,6 +45,14 @@ Serialization is mainly used in Hibernate, RMI, JPA and JMS technologies.
 22. Serialization Proxy Pattern
 23. Exercises and Solutions
 
+### GitHub
+
+[Java Serialization](https://github.com/backstreetbrogrammer/05_Persistence)
+
+### References
+
+[Java Specifications](https://docs.oracle.com/en/java/javase/11/docs/specs/serialization/index.html)
+
 ### Youtube
 
 [Java Serialization Playlist](https://youtube.com/playlist?list=PLQDzPczdXrTjGLkI8kd2d0bfNHx0v7dTy)
@@ -80,6 +88,8 @@ where it will be correctly reconstructed.
 
 I don’t have to worry about the data representations on the different machines, the byte ordering, or any other details.
 
+![Java Serialization Diagram](JavaSerialization.png)
+
 Java POJO class object containing only primitive fields (`int`, `char`, `float`, `double`, `long`) and `String` fields
 can be serialized by just implementing `Serializable` interface and using these 2 methods:
 
@@ -91,6 +101,11 @@ can be serialized by just implementing `Serializable` interface and using these 
 - [05 - Java Serialization - Introduction - Theory](https://youtu.be/Zas-PqxXNE8)
 - [06 - Java Serialization - Introduction - Code Demo 1](https://youtu.be/KGriEzFUGWA)
 - [07 - Java Serialization - Introduction - Code Demo 2](https://youtu.be/UylAJ6EOyFg)
+
+#### GitHub
+
+- [Chapter 01 - Introduction](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/main/java/com/backstreetbrogrammer/chapter01_introduction)
+- [Chapter 01 - Introduction - Unit Tests](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/test/java/com/backstreetbrogrammer/chapter01_introduction)
 
 ---
 
@@ -120,6 +135,11 @@ be used after application restart.
 - [10 - Java Serialization with memory buffer - Code Demo 2](https://youtu.be/CN4vcPtP9Vw)
 - [11 - Java Serialization with memory buffer - Code Demo 3](https://youtu.be/cdRxfbdJ_ow)
 
+#### GitHub
+
+- [Chapter 02 - Serialization with memory buffer](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/main/java/com/backstreetbrogrammer/chapter02_serializationwithmemorybuffer)
+- [Chapter 02 - Serialization with memory buffer - Unit Tests](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/test/java/com/backstreetbrogrammer/chapter02_serializationwithmemorybuffer)
+
 ---
 
 ### Chapter 03 - Serialization with file
@@ -147,6 +167,11 @@ a file system and is meant for reading streams of raw bytes such as image data.
 
 - [12 - Java Serialization with file - Theory](https://youtu.be/v3nMZmeRT4c)
 - [13 - Java Serialization with file - Code Demo](https://youtu.be/O9HMVSqezGU)
+
+#### GitHub
+
+- [Chapter 03 - Serialization with file](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/main/java/com/backstreetbrogrammer/chapter03_serializationwithfile)
+- [Chapter 03 - Serialization with file - Unit Tests](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/test/java/com/backstreetbrogrammer/chapter03_serializationwithfile)
 
 ---
 
@@ -186,6 +211,11 @@ thrown.
 - [15 - Java Serialization Versioning - Code Demo 1](https://youtu.be/YCDbwAl0PV0)
 - [16 - Java Serialization Versioning - Code Demo 2](https://youtu.be/eT-OrSB2Tos)
 
+#### GitHub
+
+- [Chapter 04 - Serialization versioning](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/main/java/com/backstreetbrogrammer/chapter04_serializationversioning)
+- [Chapter 04 - Serialization versioning - Unit Tests](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/test/java/com/backstreetbrogrammer/chapter04_serializationversioning)
+
 ---
 
 ### Chapter 05 - Serialization with array field members
@@ -198,6 +228,11 @@ fail.
 #### Youtube
 
 - [17 - Java Serialization with array field members - Code Demo](https://youtu.be/nyAyOiB3QrU)
+
+#### GitHub
+
+- [Chapter 05 - Serialization with array field members](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/main/java/com/backstreetbrogrammer/chapter05_serializationwitharrayfields)
+- [Chapter 05 - Serialization with array field members - Unit Tests](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/test/java/com/backstreetbrogrammer/chapter05_serializationwitharrayfields)
 
 ---
 
@@ -216,6 +251,11 @@ Similarly, while deserialization, the whole array object can be read by calling 
 - [18 - Java Serialization with Java Objects as array - Code Demo 1](https://youtu.be/z5DBex6obTk)
 - [19 - Java Serialization with Java Objects as array - Code Demo 2](https://youtu.be/Nm78tlCM7oE)
 
+#### GitHub
+
+- [Chapter 06 - Serialization with Java Objects as array](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/main/java/com/backstreetbrogrammer/chapter06_serializationwitharrayobjects)
+- [Chapter 06 - Serialization with Java Objects as array - Unit Tests](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/test/java/com/backstreetbrogrammer/chapter06_serializationwitharrayobjects)
+
 ---
 
 ### Chapter 07 - Serialization with collection field members
@@ -232,6 +272,11 @@ classes like `ArrayList`, `HashSet` etc. ARE serializable.
 
 - [20 - Java Serialization with collection field members - Code Demo](https://youtu.be/q_EB2CrE8mg)
 
+#### GitHub
+
+- [Chapter 07 - Serialization with collection field members](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/main/java/com/backstreetbrogrammer/chapter07_serializationwithlistfields)
+- [Chapter 07 - Serialization with collection field members - Unit Tests](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/test/java/com/backstreetbrogrammer/chapter07_serializationwithlistfields)
+
 ---
 
 ### Chapter 08 - Serialization with Java Objects as Collection
@@ -247,6 +292,11 @@ Similarly, while deserialization, the whole collection object can be read by cal
 #### Youtube
 
 - [21 - Java Serialization with Java Objects as Collection - Code Demo](https://youtu.be/hJ_Gf9w5Agg)
+
+#### GitHub
+
+- [Chapter 08 - Serialization with Java Objects as Collection](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/main/java/com/backstreetbrogrammer/chapter08_serializationwithlistobjects)
+- [Chapter 08 - Serialization with Java Objects as Collection - Unit Tests](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/test/java/com/backstreetbrogrammer/chapter08_serializationwithlistobjects)
 
 ---
 
@@ -283,6 +333,11 @@ Few more points to take note of:
 - [22 - Java Serialization with Enum Constants - Code Demo 1](https://youtu.be/EChfTzyhp6c)
 - [23 - Java Serialization with Enum Constants - Code Demo 2](https://youtu.be/cs94RBaU654)
 
+#### GitHub
+
+- [Chapter 09 - Serialization with Enum Constants](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/main/java/com/backstreetbrogrammer/chapter09_serializationwithenum)
+- [Chapter 09 - Serialization with Enum Constants - Unit Tests](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/test/java/com/backstreetbrogrammer/chapter09_serializationwithenum)
+
 ---
 
 ### Chapter 10 - Serialization with static fields
@@ -304,6 +359,11 @@ be used to replace the one currently in the one and only class that’s currentl
 
 - [24 - Java Serialization with static fields - Code Demo](https://youtu.be/gqLPbcK91ko)
 
+#### GitHub
+
+- [Chapter 10 - Serialization with static fields](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/main/java/com/backstreetbrogrammer/chapter10_serializationwithstaticfields)
+- [Chapter 10 - Serialization with static fields - Unit Tests](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/test/java/com/backstreetbrogrammer/chapter10_serializationwithstaticfields)
+
 ---
 
 ### Chapter 11 - Object graphs
@@ -322,6 +382,11 @@ get
 #### Youtube
 
 - [25 - Java Serialization with Object graphs - Code Demo](https://youtu.be/qbu7mOHwIQM)
+
+#### GitHub
+
+- [Chapter 11 - Object graphs](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/main/java/com/backstreetbrogrammer/chapter11_objectgraphs)
+- [Chapter 11 - Object graphs - Unit Tests](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/test/java/com/backstreetbrogrammer/chapter11_objectgraphs)
 
 ---
 
@@ -347,6 +412,11 @@ What happens to data marked `transient` on deserialization? It reverts to its de
 
 - [26 - Java Serialization using transient keyword - Theory](https://youtu.be/6BAgEmzTIgU)
 - [27 - Java Serialization using transient keyword - Code Demo](https://youtu.be/syWzyLCWPzk)
+
+#### GitHub
+
+- [Chapter 12 - Using transient keyword](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/main/java/com/backstreetbrogrammer/chapter12_transient)
+- [Chapter 12 - Using transient keyword - Unit Tests](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/test/java/com/backstreetbrogrammer/chapter12_transient)
 
 ---
 
@@ -389,6 +459,11 @@ respectively.
 - [29 - Java Serialization using writeObject() and readObject() - Code Demo 1](https://youtu.be/lBPkDTUH1Z0)
 - [30 - Java Serialization using writeObject() and readObject() - Code Demo 2](https://youtu.be/a0lR17k7DC8)
 
+#### GitHub
+
+- [Chapter 13 - Using writeObject() and readObject()](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/main/java/com/backstreetbrogrammer/chapter13_writeObjectReadObject)
+- [Chapter 13 - Using writeObject() and readObject() - Unit Tests](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/test/java/com/backstreetbrogrammer/chapter13_writeObjectReadObject)
+
 ---
 
 ### Chapter 14 - Using ObjectStreamField
@@ -408,6 +483,11 @@ or not.
 - [31 - Java Serialization using ObjectStreamField - Theory](https://youtu.be/yc4uTPSReFc)
 - [32 - Java Serialization using ObjectStreamField - Code Demo 1](https://youtu.be/deuhH8nqwaY)
 - [33 - Java Serialization using ObjectStreamField - Code Demo 2](https://youtu.be/P6fPT1v43IQ)
+
+#### GitHub
+
+- [Chapter 14 - Using ObjectStreamField](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/main/java/com/backstreetbrogrammer/chapter14_usingobjectstreamfield)
+- [Chapter 14 - Using ObjectStreamField - Unit Tests](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/test/java/com/backstreetbrogrammer/chapter14_usingobjectstreamfield)
 
 ---
 
@@ -432,6 +512,11 @@ fields.
 - [35 - Java Serialization - Protecting sensitive information using SHA1 - Code Demo 2](https://youtu.be/y_2To9_ads0)
 - [36 - Java Serialization - Protecting sensitive information using SHA1 - Code Demo 3](https://youtu.be/05Lx0In1YvQ)
 - [37 - Java Serialization - Protecting sensitive information using SHA1 - Unit Tests Code Demo](https://youtu.be/YT9L_M3xvCY)
+
+#### GitHub
+
+- [Chapter 15 - Protecting sensitive information](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/main/java/com/backstreetbrogrammer/chapter15_securedFields)
+- [Chapter 15 - Protecting sensitive information - Unit Tests](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/test/java/com/backstreetbrogrammer/chapter15_securedFields)
 
 ---
 
@@ -485,6 +570,11 @@ In fact, every constructor ABOVE the first non-serializable class constructor wi
 - [39 - How Inheritance Affects Java Serialization - Code Demo 1](https://youtu.be/3Tr6MDfMykg)
 - [40 - How Inheritance Affects Java Serialization - Unit Tests Code Demo](https://youtu.be/cEuYppBx2Rk)
 
+#### GitHub
+
+- [Chapter 16 - How Inheritance Affects Serialization](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/main/java/com/backstreetbrogrammer/chapter16_inheritance)
+- [Chapter 16 - How Inheritance Affects Serialization - Unit Tests](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/test/java/com/backstreetbrogrammer/chapter16_inheritance)
+
 ---
 
 ### Chapter 17 - Using Externalizable
@@ -505,6 +595,11 @@ When an `Externalizable` object is reconstructed, the object is created using pu
 
 If a public no-arg constructor is not present then a `InvalidClassException` is thrown at runtime.
 
+#### GitHub
+
+- [Chapter 17 - Using Externalizable](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/main/java/com/backstreetbrogrammer/chapter17_externalizable)
+- [Chapter 17 - Using Externalizable - Unit Tests](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/test/java/com/backstreetbrogrammer/chapter17_externalizable)
+
 ---
 
 ### Chapter 18 - Using ObjectInputValidation
@@ -523,6 +618,11 @@ to your application.
 If the object cannot be made valid, it should throw the `InvalidObjectException`. Any exception that occurs during a
 call to `validateObject()` will terminate the validation process, and the `InvalidObjectException` will be thrown.
 
+#### GitHub
+
+- [Chapter 18 - Using ObjectInputValidation](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/main/java/com/backstreetbrogrammer/chapter18_objectinputvalidation)
+- [Chapter 18 - Using ObjectInputValidation - Unit Tests](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/test/java/com/backstreetbrogrammer/chapter18_objectinputvalidation)
+
 ---
 
 ### Chapter 19 - Using writeReplace() and readResolve()
@@ -534,6 +634,11 @@ serialized.
 Similarly, `readResolve()` method is used during deserialization process to allow the developer to replace the
 deserialized object by another one of our choice. The `readResolve()` method is run after `readObject()` method is
 called.
+
+#### GitHub
+
+- [Chapter 19 - Using writeReplace() and readResolve()](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/main/java/com/backstreetbrogrammer/chapter19_writeReplaceReadResolve)
+- [Chapter 19 - Using writeReplace() and readResolve() - Unit Tests](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/test/java/com/backstreetbrogrammer/chapter19_writeReplaceReadResolve)
 
 ---
 
@@ -567,6 +672,11 @@ is invoked on the newly created object after it is deserialized.
 
 The object reference returned by this method is then returned in place of the newly created object. No reference to the
 newly created object is retained, so it immediately becomes eligible for garbage collection.
+
+#### GitHub
+
+- [Chapter 20 - Singleton pattern and readResolve()](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/main/java/com/backstreetbrogrammer/chapter20_singleton)
+- [Chapter 20 - Singleton pattern and readResolve() - Unit Tests](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/test/java/com/backstreetbrogrammer/chapter20_singleton)
 
 ---
 
@@ -609,6 +719,11 @@ We can implement serialization filters in 2 ways:
 - Custom filters by implementing `checkInput(FilterInfo)` method of `ObjectInputFilter` interface
 - **Pattern-based filters** which can accept or reject specific classes, packages, or modules => A class that matches a
   pattern that is preceded by `!` is rejected. A class that matches a pattern without `!` is accepted.
+
+#### GitHub
+
+- [Chapter 21 - Using ObjectInputFilter](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/main/java/com/backstreetbrogrammer/chapter21_serializationfilters)
+- [Chapter 21 - Using ObjectInputFilter - Unit Tests](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/test/java/com/backstreetbrogrammer/chapter21_serializationfilters)
 
 ---
 
@@ -653,6 +768,11 @@ Serialization proxy pattern has two limitations:
 
 Thus, consider the serialization proxy pattern whenever we have to write a `readObject()` or `writeObject()` method on a
 class that is not extendable by its clients.
+
+#### GitHub
+
+- [Chapter 22 - Serialization Proxy Pattern](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/main/java/com/backstreetbrogrammer/chapter22_serializationproxypattern)
+- [Chapter 22 - Serialization Proxy Pattern - Unit Tests](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/test/java/com/backstreetbrogrammer/chapter22_serializationproxypattern)
 
 ---
 
