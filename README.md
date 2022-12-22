@@ -584,7 +584,7 @@ In fact, every constructor ABOVE the first non-serializable class constructor wi
 If we want to fully control serialization and override JVM default serialization process, we can implement the
 `Externalizable` interface and override its methods `writeExternal()` and `readExternal()`.
 
-Using `Externalizable`, complete serialization/deserialization logic becomes our responsibility.
+Using `Externalizable`, complete serialization/deserialization logic becomes developer's responsibility.
 
 We need to tell what to serialize using `writeExternal()` method and what to deserialize using `readExternal()`. With
 implementation of `writeExternal()` and `readExternal()`, methods `writeObject()` and `readObject()` becomes redundant
@@ -596,6 +596,10 @@ When an `Externalizable` object is reconstructed, the object is created using pu
 `readExternal()` method is called.
 
 If a public no-arg constructor is not present then a `InvalidClassException` is thrown at runtime.
+
+#### Youtube
+
+- [41 - Java Serialization using Externalizable - Theory](https://youtu.be/H4iprygvnaU)
 
 #### GitHub
 
