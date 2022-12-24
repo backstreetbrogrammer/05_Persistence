@@ -600,6 +600,7 @@ If a public no-arg constructor is not present then a `InvalidClassException` is 
 #### Youtube
 
 - [41 - Java Serialization using Externalizable - Theory](https://youtu.be/H4iprygvnaU)
+- [42 - Java Serialization using Externalizable - Code Demo 1](https://youtu.be/xEKqIbIU6PE)
 
 #### GitHub
 
