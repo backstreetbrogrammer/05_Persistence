@@ -621,10 +621,14 @@ The method `validateObject()` will automatically get called when we register thi
 `ObjectInputStream.registerValidation()` from `readObject()` method.
 
 It is very useful to verify that stream has not been tampered with, or that the data makes sense before handing it back
-to your application.
+to our application.
 
 If the object cannot be made valid, it should throw the `InvalidObjectException`. Any exception that occurs during a
 call to `validateObject()` will terminate the validation process, and the `InvalidObjectException` will be thrown.
+
+#### Youtube
+
+- [44 - Java Serialization using ObjectInputValidation - Theory](https://youtu.be/MHSJ_M1V8Kk)
 
 #### GitHub
 
