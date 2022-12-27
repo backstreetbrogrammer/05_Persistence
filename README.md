@@ -630,6 +630,7 @@ call to `validateObject()` will terminate the validation process, and the `Inval
 
 - [44 - Java Serialization using ObjectInputValidation - Theory](https://youtu.be/MHSJ_M1V8Kk)
 - [45 - Java Serialization using ObjectInputValidation - Code Demo 1](https://youtu.be/_GQzfhOahX4)
+- [46 - Java Serialization using ObjectInputValidation - Unit Tests Code Demo 1](https://youtu.be/GZqpDDpFvBs)
 
 #### GitHub
 

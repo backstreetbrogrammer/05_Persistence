@@ -101,11 +101,6 @@ public class MarketDataWithWriteReplaceReadResolve implements Serializable {
         os.defaultWriteObject();
     }
 
-    private void readObject(final ObjectInputStream is) throws IOException, ClassNotFoundException {
-        System.out.println("In readObject()");
-        is.defaultReadObject();
-    }
-
     private Object writeReplace() throws ObjectStreamException {
         System.out.println("In writeReplace()");
 
@@ -122,6 +117,10 @@ public class MarketDataWithWriteReplaceReadResolve implements Serializable {
         return marketData;
     }
 
+    private void readObject(final ObjectInputStream is) throws IOException, ClassNotFoundException {
+        System.out.println("In readObject()");
+        is.defaultReadObject();
+    }
 
     private Object readResolve() throws ObjectStreamException {
         System.out.println("In readResolve()");
