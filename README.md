@@ -650,6 +650,10 @@ Similarly, `readResolve()` method is used during deserialization process to allo
 deserialized object by another one of our choice. The `readResolve()` method is run after `readObject()` method is
 called.
 
+#### Youtube
+
+- [48 - Java Serialization using writeReplace() and readResolve() - Theory](https://youtu.be/hlrdoPAqY2Q)
+
 #### GitHub
 
 - [Chapter 19 - Using writeReplace() and readResolve()](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/main/java/com/backstreetbrogrammer/chapter19_writeReplaceReadResolve)
