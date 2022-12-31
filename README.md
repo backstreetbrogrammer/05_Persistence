@@ -654,6 +654,7 @@ called.
 
 - [48 - Java Serialization using writeReplace() and readResolve() - Theory](https://youtu.be/hlrdoPAqY2Q)
 - [49 - Java Serialization using writeReplace() and readResolve() - Code Demo 1](https://youtu.be/yNoJsJAYDlk)
+- [50 - Java Serialization using writeReplace() and readResolve() - Unit Tests Code Demo](https://youtu.be/E9J3WcEBsPs)
 
 #### GitHub
 
