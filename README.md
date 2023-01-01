@@ -694,6 +694,10 @@ is invoked on the newly created object after it is deserialized.
 The object reference returned by this method is then returned in place of the newly created object. No reference to the
 newly created object is retained, so it immediately becomes eligible for garbage collection.
 
+#### Youtube
+
+- [51 - Java Serialization with Singleton pattern and readResolve() - Theory](https://youtu.be/i1mKDSGXs3o)
+
 #### GitHub
 
 - [Chapter 20 - Singleton pattern and readResolve()](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/main/java/com/backstreetbrogrammer/chapter20_singleton)
