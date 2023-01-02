@@ -123,7 +123,8 @@ public class MarketDataSingleton implements Serializable {
 
     private Object readResolve() throws ObjectStreamException {
         System.out.println("In readResolve()");
-        System.out.printf("Deserialized object's hashcode before INSTANCE: %d%n", this.hashCode());
+        System.out.printf("Deserialized object's hashcode: %d%n", this.hashCode());
+        System.out.printf("INSTANCE object's hashcode: %d%n", this.hashCode());
         return INSTANCE;
     }
 
