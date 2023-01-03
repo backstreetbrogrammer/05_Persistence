@@ -698,6 +698,7 @@ newly created object is retained, so it immediately becomes eligible for garbage
 
 - [51 - Java Serialization with Singleton pattern and readResolve() - Theory](https://youtu.be/i1mKDSGXs3o)
 - [52 - Java Serialization with Singleton pattern and readResolve() - Code Demo 1](https://youtu.be/dWmpl6gIEYY)
+- [53 - Java Serialization with Singleton pattern and readResolve() - Unit Tests Code Demo](https://youtu.be/_pKnGIwRrIc)
 
 #### GitHub
 
