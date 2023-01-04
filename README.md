@@ -747,6 +747,10 @@ We can implement serialization filters in 2 ways:
 - **Pattern-based filters** which can accept or reject specific classes, packages, or modules => A class that matches a
   pattern that is preceded by `!` is rejected. A class that matches a pattern without `!` is accepted.
 
+#### Youtube
+
+- [54 - Java Serialization using ObjectInputFilter - Theory](https://youtu.be/4DoPE8JQ_lw)
+
 #### GitHub
 
 - [Chapter 21 - Using ObjectInputFilter](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/main/java/com/backstreetbrogrammer/chapter21_serializationfilters)
