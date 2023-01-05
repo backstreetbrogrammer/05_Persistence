@@ -750,6 +750,7 @@ We can implement serialization filters in 2 ways:
 #### Youtube
 
 - [54 - Java Serialization using ObjectInputFilter - Theory](https://youtu.be/4DoPE8JQ_lw)
+- [55 - Java Serialization using ObjectInputFilter as ALLOWED - Code Demo 1](https://youtu.be/E0q309qtCyo)
 
 #### GitHub
 
