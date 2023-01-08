@@ -755,6 +755,7 @@ We can implement serialization filters in 2 ways:
 - [55 - Java Serialization using ObjectInputFilter as ALLOWED - Code Demo 1](https://youtu.be/E0q309qtCyo)
 - [56 - Java Serialization using ObjectInputFilter as REJECTED - Code Demo 2](https://youtu.be/fFOvifx6lpg)
 - [57 - Java Serialization using ObjectInputFilter as REJECTED - Code Demo 3](https://youtu.be/vnPRFpZeq-I)
+- [58 - Java Serialization using ObjectInputFilter as pattern based - Code Demo 4](https://youtu.be/NIViI-aaeFs)
 
 #### GitHub
 
