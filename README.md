@@ -55,7 +55,7 @@ Serialization is mainly used in Hibernate, RMI, JPA and JMS technologies.
 
 ### Youtube
 
-![Java Serialization Playlist](Java Serialization Thumbnail.png)
+![Java Serialization Playlist](JavaSerializationThumbnail.png)
 
 [Java Serialization Playlist](https://youtube.com/playlist?list=PLQDzPczdXrTjGLkI8kd2d0bfNHx0v7dTy)
 
