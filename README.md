@@ -207,6 +207,26 @@ thrown.
 *Conclusion*: It's a good practice to declare a static `serialVersionUID` variable in every class that implements
 `Serializable`.
 
+In **IntelliJ IDE**, we can generate `serialVersionUID` using the following action:
+**Ctrl + Shift + A** (will launch Actions tab menu) => type ‘**Serializable class without**’ and select the item to
+toggle it on/off.
+
+OR File -> Settings -> Editor -> Inspections -> Java -> Serialization issues:
+Find ‘**Serializable class without serialVersionUID**’ and check it.
+
+Now, for each class implementing `Serializable` interface will show warning if no `serialVersionUID` is declared.
+
+Press “**Alt + Enter**” and Click on “**Create constant field serialVersionUID in** …” and serialVersionUID will be
+generated and declared in the class.
+
+OR, we can just declare any random number like 1L or 42L and declare in the class.
+
+For example:
+
+```
+private static final long serialVersionUID = 1L; // 1L or 2L or 3L - any number can be chosen
+```
+
 #### Youtube
 
 - [14 - Java Serialization Versioning - Theory](https://youtu.be/ADSp_A4oCeo)
