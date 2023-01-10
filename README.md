@@ -806,6 +806,10 @@ Serialization proxy pattern has two limitations:
 Thus, consider the serialization proxy pattern whenever we have to write a `readObject()` or `writeObject()` method on a
 class that is not extendable by its clients.
 
+#### Youtube
+
+- [59 - Java Serialization Proxy Pattern - Theory](https://youtu.be/bWq3HkxXy-Q)
+
 #### GitHub
 
 - [Chapter 22 - Serialization Proxy Pattern](https://github.com/backstreetbrogrammer/05_Persistence/tree/main/src/main/java/com/backstreetbrogrammer/chapter22_serializationproxypattern)
