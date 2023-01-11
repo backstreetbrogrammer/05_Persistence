@@ -35,7 +35,9 @@ class OtherClassExercise1 implements Serializable {
    D. Output is 4 0 4
    E. Output is 4 5 3
    F. Output is 4 5 4
-   G. To change the standard deserialization process, we should implement the readObject() in OtherClassExercise1
-   H. To change the standard deserialization process, we should implement the defaultReadObject() in OtherClassExercise1
+   G. To change the standard deserialization process,
+      we should implement the readObject() in OtherClassExercise1
+   H. To change the standard deserialization process,
+      we should implement the defaultReadObject() in OtherClassExercise1
 
 */

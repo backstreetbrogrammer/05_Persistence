@@ -829,6 +829,8 @@ class that is not extendable by its clients.
 #### Youtube
 
 - [59 - Java Serialization Proxy Pattern - Theory](https://youtu.be/bWq3HkxXy-Q)
+- [60 - Java Serialization Proxy Pattern - Code Demo 1](https://youtu.be/N1di_j5YiKA)
+- [61 - Java Serialization Proxy Pattern - Code Demo 2](https://youtu.be/mfauNaNoJ6Y)
 
 #### GitHub
 
@@ -1527,7 +1529,7 @@ public class Exercise13 implements Serializable {
 
 #### Solutions
 
-1. **D**
+1. **D, G**
 2. **B**
 3. **A**
 4. **B, C, D**
