@@ -831,6 +831,7 @@ class that is not extendable by its clients.
 - [59 - Java Serialization Proxy Pattern - Theory](https://youtu.be/bWq3HkxXy-Q)
 - [60 - Java Serialization Proxy Pattern - Code Demo 1](https://youtu.be/N1di_j5YiKA)
 - [61 - Java Serialization Proxy Pattern - Code Demo 2](https://youtu.be/mfauNaNoJ6Y)
+- [62 - Java Serialization Proxy Pattern - Unit Tests Code Demo](https://youtu.be/AYBrL-aFYZA)
 
 #### GitHub
 
@@ -884,6 +885,14 @@ class OtherClassExercise1 implements Serializable {
 
 */
 ```
+
+#### Youtube
+
+- [63 - Java Serialization - Exercise 1](https://youtu.be/2FHsDh3YlZo)
+
+#### GitHub
+
+- [Chapter 23 - Exercise 1](https://github.com/backstreetbrogrammer/05_Persistence/blob/main/src/main/java/com/backstreetbrogrammer/chapter23_exercisesandsolutions/Exercise1.java)
 
 ---
 
