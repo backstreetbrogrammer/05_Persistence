@@ -27,7 +27,8 @@ public class Exercise2 implements Serializable {
         oos.writeFields();
     }
 
-    private void readObject(final ObjectInputStream is) throws IOException, ClassNotFoundException {
+    private void readObject(final ObjectInputStream is)
+            throws IOException, ClassNotFoundException {
         final ObjectInputStream.GetField fields = is.readFields();
         favoriteLanguage = (String) fields.get("favoriteLanguage", null);
         yearsOfExperience = fields.get("yearsOfExperience", 0);
@@ -48,7 +49,8 @@ public class Exercise2 implements Serializable {
                 new BufferedInputStream(
                         new FileInputStream("serFile2")))) {
             final var fromSerialize = (Exercise2) ois.readObject();
-            System.out.printf("%s %d%n", fromSerialize.favoriteLanguage, fromSerialize.yearsOfExperience);
+            System.out.printf("%s %d%n", fromSerialize.favoriteLanguage,
+                              fromSerialize.yearsOfExperience);
         }
     }
 }

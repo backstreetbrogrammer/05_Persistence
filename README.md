@@ -965,6 +965,14 @@ public class Exercise2 implements Serializable {
 */
 ```
 
+#### Youtube
+
+- [64 - Java Serialization - Exercise 2](https://youtu.be/MibaEYhxAuU)
+
+#### GitHub
+
+- [Chapter 23 - Exercise 2](https://github.com/backstreetbrogrammer/05_Persistence/blob/main/src/main/java/com/backstreetbrogrammer/chapter23_exercisesandsolutions/Exercise2.java)
+
 ---
 
 #### Exercise 3
