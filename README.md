@@ -1020,6 +1020,14 @@ class OtherClass3 {
 */
 ```
 
+#### Youtube
+
+- [65 - Java Serialization - Exercise 3](https://youtu.be/oPI0BQPt0O4)
+
+#### GitHub
+
+- [Chapter 23 - Exercise 3](https://github.com/backstreetbrogrammer/05_Persistence/blob/main/src/main/java/com/backstreetbrogrammer/chapter23_exercisesandsolutions/Exercise3.java)
+
 ---
 
 #### Exercise 4
