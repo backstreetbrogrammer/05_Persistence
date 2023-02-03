@@ -1166,6 +1166,14 @@ class Lenovo extends Computer {
 */
 ```
 
+#### Youtube
+
+- [68 - Java Serialization - Exercise 6](https://youtu.be/h6Y7gJkUrR4)
+
+#### GitHub
+
+- [Chapter 23 - Exercise 6](https://github.com/backstreetbrogrammer/05_Persistence/blob/main/src/main/java/com/backstreetbrogrammer/chapter23_exercisesandsolutions/Exercise6.java)
+
 ---
 
 #### Exercise 7
