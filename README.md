@@ -1228,6 +1228,14 @@ public class Exercise7 implements Serializable {
 */
 ```
 
+#### Youtube
+
+- [69 - Java Serialization - Exercise 7](https://youtu.be/mBjlrZK2ukM)
+
+#### GitHub
+
+- [Chapter 23 - Exercise 7](https://github.com/backstreetbrogrammer/05_Persistence/blob/main/src/main/java/com/backstreetbrogrammer/chapter23_exercisesandsolutions/Exercise7.java)
+
 ---
 
 #### Exercise 8
