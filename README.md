@@ -1297,6 +1297,14 @@ class OtherClass8 {
 */
 ```
 
+#### Youtube
+
+- [70 - Java Serialization - Exercise 8](https://youtu.be/I7YnBpv1ccA)
+
+#### GitHub
+
+- [Chapter 23 - Exercise 8](https://github.com/backstreetbrogrammer/05_Persistence/blob/main/src/main/java/com/backstreetbrogrammer/chapter23_exercisesandsolutions/Exercise8.java)
+
 ---
 
 #### Exercise 9
@@ -1351,6 +1359,14 @@ public class Exercise9 implements Serializable {
 
 */
 ```
+
+#### Youtube
+
+- [71 - Java Serialization - Exercise 9](https://youtu.be/lrFROv-SUlA)
+
+#### GitHub
+
+- [Chapter 23 - Exercise 9](https://github.com/backstreetbrogrammer/05_Persistence/blob/main/src/main/java/com/backstreetbrogrammer/chapter23_exercisesandsolutions/Exercise9.java)
 
 ---
 
@@ -1416,6 +1432,14 @@ class OtherClass10 {
 */
 ```
 
+#### Youtube
+
+- [72 - Java Serialization - Exercise 10](https://youtu.be/KXR2eWE_e84)
+
+#### GitHub
+
+- [Chapter 23 - Exercise 10](https://github.com/backstreetbrogrammer/05_Persistence/blob/main/src/main/java/com/backstreetbrogrammer/chapter23_exercisesandsolutions/Exercise10.java)
+
 ---
 
 #### Exercise 11
@@ -1449,6 +1473,14 @@ public class Exercise11 implements Serializable {
 
 */
 ```
+
+#### Youtube
+
+- [73 - Java Serialization - Exercise 11](https://youtu.be/3FtwVt4g0AY)
+
+#### GitHub
+
+- [Chapter 23 - Exercise 11](https://github.com/backstreetbrogrammer/05_Persistence/blob/main/src/main/java/com/backstreetbrogrammer/chapter23_exercisesandsolutions/Exercise11.java)
 
 ---
 
@@ -1523,6 +1555,14 @@ public class Exercise12 implements Serializable {
 */
 ```
 
+#### Youtube
+
+- [74 - Java Serialization - Exercise 12](https://youtu.be/9ffbkx4nqKE)
+
+#### GitHub
+
+- [Chapter 23 - Exercise 12](https://github.com/backstreetbrogrammer/05_Persistence/blob/main/src/main/java/com/backstreetbrogrammer/chapter23_exercisesandsolutions/Exercise12.java)
+
 ---
 
 #### Exercise 13
@@ -1581,6 +1621,14 @@ public class Exercise13 implements Serializable {
 
 */
 ```
+
+#### Youtube
+
+- [75 - Java Serialization - Exercise 13](https://youtu.be/R2Uc43KeN0c)
+
+#### GitHub
+
+- [Chapter 23 - Exercise 13](https://github.com/backstreetbrogrammer/05_Persistence/blob/main/src/main/java/com/backstreetbrogrammer/chapter23_exercisesandsolutions/Exercise13.java)
 
 ---
 
