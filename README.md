@@ -21,29 +21,29 @@ Serialization is mainly used in Hibernate, RMI, JPA and JMS technologies.
 
 ## Table of contents
 
-1. Introduction
-2. Serialization with memory buffer
-3. Serialization with file
-4. Serialization versioning
-5. Serialization with array field members
-6. Serialization with Java Objects as array
-7. Serialization with collection field members
-8. Serialization with Java Objects as Collection
-9. Serialization with Enum Constants
-10. Serialization with static fields
-11. Object graphs
-12. Using transient keyword
-13. Using writeObject() and readObject()
-14. Using ObjectStreamField
-15. Protecting sensitive information
-16. How Inheritance Affects Serialization
-17. Using Externalizable
-18. Using ObjectInputValidation
-19. Using writeReplace() and readResolve()
-20. Singleton pattern and readResolve()
-21. Using ObjectInputFilter
-22. Serialization Proxy Pattern
-23. Exercises and Solutions
+1. [Introduction](https://github.com/backstreetbrogrammer/05_Persistence#chapter-01---introduction)
+2. [Serialization with memory buffer](https://github.com/backstreetbrogrammer/05_Persistence#chapter-02---serialization-with-memory-buffer)
+3. [Serialization with file](https://github.com/backstreetbrogrammer/05_Persistence#chapter-03---serialization-with-file)
+4. [Serialization versioning](https://github.com/backstreetbrogrammer/05_Persistence#chapter-04---serialization-versioning)
+5. [Serialization with array field members](https://github.com/backstreetbrogrammer/05_Persistence#chapter-05---serialization-with-array-field-members)
+6. [Serialization with Java Objects as array](https://github.com/backstreetbrogrammer/05_Persistence#chapter-06---serialization-with-java-objects-as-array)
+7. [Serialization with collection field members](https://github.com/backstreetbrogrammer/05_Persistence#chapter-07---serialization-with-collection-field-members)
+8. [Serialization with Java Objects as Collection](https://github.com/backstreetbrogrammer/05_Persistence#chapter-08---serialization-with-java-objects-as-collection)
+9. [Serialization with Enum Constants](https://github.com/backstreetbrogrammer/05_Persistence#chapter-09---serialization-with-enum-constants)
+10. [Serialization with static fields](https://github.com/backstreetbrogrammer/05_Persistence#chapter-10---serialization-with-static-fields)
+11. [Object graphs](https://github.com/backstreetbrogrammer/05_Persistence#chapter-11---object-graphs)
+12. [Using transient keyword](https://github.com/backstreetbrogrammer/05_Persistence#chapter-12---using-transient-keyword)
+13. [Using writeObject() and readObject()](https://github.com/backstreetbrogrammer/05_Persistence#chapter-13---using-writeobject-and-readobject)
+14. [Using ObjectStreamField](https://github.com/backstreetbrogrammer/05_Persistence#chapter-14---using-objectstreamfield)
+15. [Protecting sensitive information](https://github.com/backstreetbrogrammer/05_Persistence#chapter-15---protecting-sensitive-information)
+16. [How Inheritance Affects Serialization](https://github.com/backstreetbrogrammer/05_Persistence#chapter-16---how-inheritance-affects-serialization)
+17. [Using Externalizable](https://github.com/backstreetbrogrammer/05_Persistence#chapter-17---using-externalizable)
+18. [Using ObjectInputValidation](https://github.com/backstreetbrogrammer/05_Persistence#chapter-18---using-objectinputvalidation)
+19. [Using writeReplace() and readResolve()](https://github.com/backstreetbrogrammer/05_Persistence#chapter-19---using-writereplace-and-readresolve)
+20. [Singleton pattern and readResolve()](https://github.com/backstreetbrogrammer/05_Persistence#chapter-20---singleton-pattern-and-readresolve)
+21. [Using ObjectInputFilter](https://github.com/backstreetbrogrammer/05_Persistence#chapter-21---using-objectinputfilter)
+22. [Serialization Proxy Pattern](https://github.com/backstreetbrogrammer/05_Persistence#chapter-22---serialization-proxy-pattern)
+23. [Exercises and Solutions](https://github.com/backstreetbrogrammer/05_Persistence#chapter-23---exercises-and-solutions)
 
 ### GitHub
 
